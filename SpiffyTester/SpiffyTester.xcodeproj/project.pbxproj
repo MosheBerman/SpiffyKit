@@ -86,6 +86,7 @@
 		465E38C517926ACE0007346D /* SpiffyTesterTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SpiffyTesterTests.h; sourceTree = "<group>"; };
 		465E38C617926ACE0007346D /* SpiffyTesterTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SpiffyTesterTests.m; sourceTree = "<group>"; };
 		466D72CE1792F7E0002CB158 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
+		46962D0D1793045100DA4743 /* SpiffySwitchCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file; name = SpiffySwitchCell.xib; path = ../SpiffyKit/SpiffySwitchCell.xib; sourceTree = "<group>"; };
 		46A23FB517927A9800F58FCF /* SpiffyKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SpiffyKit.xcodeproj; path = ../SpiffyKit.xcodeproj; sourceTree = "<group>"; };
 		46A23FC117927ABB00F58FCF /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		46A23FC317927AC000F58FCF /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
@@ -121,6 +122,7 @@
 		465E388617926ACD0007346D = {
 			isa = PBXGroup;
 			children = (
+				46962D0D1793045100DA4743 /* SpiffySwitchCell.xib */,
 				466D72CE1792F7E0002CB158 /* Icon@2x.png */,
 				465E389817926ACD0007346D /* SpiffyTester */,
 				465E38BF17926ACE0007346D /* SpiffyTesterTests */,
