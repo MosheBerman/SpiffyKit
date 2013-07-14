@@ -33,6 +33,9 @@
 {
     [super viewDidLoad];
 		
+		
+		[[SpiffyActionController sharedController] setTargetViewController:self];
+		
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
 		
@@ -51,7 +54,7 @@
 		[self setLabels:localizedLabels];
 		
 		[[self tableView] registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
-
+		
 }
 
 - (void)didReceiveMemoryWarning
@@ -144,7 +147,7 @@
 		{
 				if (0 == [indexPath row]) {
 						if ([SpiffyActionController canShare]) {
-								[SpiffyActionController displayActivityViewController];
+								[SpiffyActionController showActivityViewController];
 						}
 						else
 						{
