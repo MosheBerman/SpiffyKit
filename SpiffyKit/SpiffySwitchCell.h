@@ -8,9 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SpiffySwitchCell : UITableViewCell
+#import "SpiffyTableViewCell.h"
 
-@property (strong, nonatomic) IBOutlet UILabel *switchLabel;
-@property (strong, nonatomic) IBOutlet UISwitch *toggle;
+@interface SpiffySwitchCell : SpiffyTableViewCell
+
+
+@property (strong, nonatomic) UILabel *switchLabel;
+@property (strong, nonatomic) UISwitch *toggle;
 
 @end

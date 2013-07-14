@@ -20,6 +20,8 @@
 		466D72C817929344002CB158 /* SpiffyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 466D72C717929344002CB158 /* SpiffyTableViewCell.m */; };
 		46962CFD1792FA6D00DA4743 /* SpiffyInternalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46962CFC1792FA6D00DA4743 /* SpiffyInternalViewController.m */; };
 		46962CFE1792FA6D00DA4743 /* SpiffyInternalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46962CFC1792FA6D00DA4743 /* SpiffyInternalViewController.m */; };
+		46962D011792FFB200DA4743 /* SpiffySwitchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 46962D001792FFB200DA4743 /* SpiffySwitchCell.m */; };
+		46962D021792FFB200DA4743 /* SpiffySwitchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 46962D001792FFB200DA4743 /* SpiffySwitchCell.m */; };
 		46A23FCF17928F3E00F58FCF /* SpiffyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46A23FCE17928F3E00F58FCF /* SpiffyViewController.m */; };
 		46DB00FF1792613400F92209 /* SpiffyActionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46DB00FE1792613400F92209 /* SpiffyActionController.m */; };
 		46DB01001792613400F92209 /* SpiffyActionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46DB00FE1792613400F92209 /* SpiffyActionController.m */; };
@@ -70,6 +72,8 @@
 		466D72C717929344002CB158 /* SpiffyTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpiffyTableViewCell.m; sourceTree = "<group>"; };
 		46962CFB1792FA6D00DA4743 /* SpiffyInternalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpiffyInternalViewController.h; sourceTree = "<group>"; };
 		46962CFC1792FA6D00DA4743 /* SpiffyInternalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpiffyInternalViewController.m; sourceTree = "<group>"; };
+		46962CFF1792FFB200DA4743 /* SpiffySwitchCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpiffySwitchCell.h; sourceTree = "<group>"; };
+		46962D001792FFB200DA4743 /* SpiffySwitchCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpiffySwitchCell.m; sourceTree = "<group>"; };
 		46A23FCD17928F3E00F58FCF /* SpiffyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpiffyViewController.h; sourceTree = "<group>"; };
 		46A23FCE17928F3E00F58FCF /* SpiffyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpiffyViewController.m; sourceTree = "<group>"; };
 		46DB00FD1792613400F92209 /* SpiffyActionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpiffyActionController.h; sourceTree = "<group>"; };
@@ -182,6 +186,8 @@
 				46A23FCE17928F3E00F58FCF /* SpiffyViewController.m */,
 				466D72C617929344002CB158 /* SpiffyTableViewCell.h */,
 				466D72C717929344002CB158 /* SpiffyTableViewCell.m */,
+				46962CFF1792FFB200DA4743 /* SpiffySwitchCell.h */,
+				46962D001792FFB200DA4743 /* SpiffySwitchCell.m */,
 			);
 			name = "View Controller";
 			sourceTree = "<group>";
@@ -300,6 +306,7 @@
 				46A23FCF17928F3E00F58FCF /* SpiffyViewController.m in Sources */,
 				466D72C817929344002CB158 /* SpiffyTableViewCell.m in Sources */,
 				46962CFD1792FA6D00DA4743 /* SpiffyInternalViewController.m in Sources */,
+				46962D011792FFB200DA4743 /* SpiffySwitchCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -310,6 +317,7 @@
 				463A4FF1178EF78200B29C30 /* SpiffyKitTests.m in Sources */,
 				46DB01001792613400F92209 /* SpiffyActionController.m in Sources */,
 				46962CFE1792FA6D00DA4743 /* SpiffyInternalViewController.m in Sources */,
+				46962D021792FFB200DA4743 /* SpiffySwitchCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
