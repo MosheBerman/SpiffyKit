@@ -41,9 +41,13 @@
 - (id)init
 {
     self = [super initWithStyle:UITableViewStyleGrouped];
-    if (self) {F
+    if (self) {
 				// Transition
 				[self setModalTransitionStyle: UIModalTransitionStyleFlipHorizontal];
+				
+				//	Title
+				NSString *name = [AppDataManager appName];
+				[[self navigationItem] setTitle:name];
     }
     return self;
 }
@@ -76,11 +80,7 @@
 		//	Done Button
 		UIBarButtonItem *done = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(dismiss)];
 		[[self navigationItem] setLeftBarButtonItem:done animated:NO];
-		
-		//	Title
-		
-		NSString *name = [AppDataManager appName];
-		[[self navigationItem] setTitle:name];
+
 }
 
 - (void)didReceiveMemoryWarning
