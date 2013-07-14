@@ -10,9 +10,11 @@
 
 #import "SpiffyActionController.h"
 
+#import <MessageUI/MessageUI.h>
+
 #import "Constants.h"
 
-@interface SpiffyViewController ()
+@interface SpiffyViewController () <MFMessageComposeViewControllerDelegate, MFMailComposeViewControllerDelegate>
 
 @property (nonatomic, strong) NSArray *labels;
 
@@ -20,19 +22,22 @@
 
 @implementation SpiffyViewController
 
-- (id)initWithStyle:(UITableViewStyle)style
++ (SpiffyViewController *)sharedController
 {
-    self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
+		static SpiffyViewController *controller = nil;
+		
+		static dispatch_once_t onceToken;
+		dispatch_once(&onceToken, ^{
+				controller = [[SpiffyViewController alloc] init];
+				SpiffyActionController *actionController = [SpiffyActionController sharedController];
+				[actionController setTargetViewController:controller];
+		});
+		return controller;
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-		
 		
 		[[SpiffyActionController sharedController] setTargetViewController:self];
 		
@@ -135,13 +140,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
+
+		[tableView deselectRowAtIndexPath:indexPath animated:YES];
 		
 		if (0 == [indexPath section])
 		{
@@ -189,5 +189,18 @@
 		}
 }
 
+#pragma mark - MFMessageComposeViewControllerDelegate
+
+- (void)messageComposeViewController:(MFMessageComposeViewController *)controller didFinishWithResult:(MessageComposeResult)result
+{
+		[self dismissViewControllerAnimated:YES completion:nil];
+}
+
+#pragma mark - MFMailComposeViewControllerDelegate
+
+- (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error
+{
+		[self dismissViewControllerAnimated:YES completion:nil];
+}
 
 @end

@@ -10,4 +10,6 @@
 
 @interface SpiffyViewController : UITableViewController
 
++ (SpiffyViewController *)sharedController;
+
 @end
