@@ -8,6 +8,8 @@
 
 #import "SpiffyViewController.h"
 
+#import "SpiffyActionController.h"
+
 @interface SpiffyViewController ()
 
 @property (nonatomic, strong) NSArray *labels;
@@ -35,11 +37,16 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 		
-		NSArray *localizedLabels = @[@[NSLocalizedString(@"Share", @"A label which allows users to share apps via social media and email."),
-															 NSLocalizedString(@"Review", @"A label for a button which allows users to review the app on the store."),
-															 NSLocalizedString(@"More Apps", @"A label for a button which shows more apps from the same developer.")],
-																 @[NSLocalizedString(@"Say Hello", @"A button which allows the user to contact the developer via email.")
-																	 ]];
+		
+		NSArray *localizedLabelsForSectionZero = @[NSLocalizedString(@"Share", @"A label which allows users to share apps via social media and email."),
+																						 NSLocalizedString(@"Review", @"A label for a button which allows users to review the app on the store."),
+																						 NSLocalizedString(@"More Apps", @"A label for a button which shows more apps from the same developer.")];
+		
+		NSArray *localizedLabelsForSectionOne = @[NSLocalizedString(@"Say Hello", @"A button which allows the user to contact the developer via email.")];
+		
+		NSArray *localizedLabels = @[localizedLabelsForSectionZero, localizedLabelsForSectionOne];
+
+		
 		[self setLabels:localizedLabels];
 }
 
@@ -129,5 +136,6 @@
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
 }
+
 
 @end
