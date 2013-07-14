@@ -7,6 +7,7 @@
 //
 
 #import "SpiffyActionController.h"
+#import "Constants.h"
 
 #import <MessageUI/MessageUI.h>
 #import <Social/Social.h>
@@ -55,8 +56,55 @@
 		return [self canUseTwitter] || [self canUseFacebook] || [self canUseSinaWeibo];
 }
 
++ (BOOL)canUseAtLeastOneMessagingService
+{
+		return [self canSendText] || [self canSendEmail];
+}
+
 + (BOOL)canShare
 {
-		
+		return [self canUseAtLeastOneSocialService] || [self canUseAtLeastOneMessagingService];
 }
+
+#pragma mark - Display a UIActivityViewController
+
++ (void)displayActivityViewController
+{
+		
+		NSString *shareString = [NSString stringWithFormat:@"I think you'd like to check out %@ on the App Store. You can download it at %@.", kAppName, kAppURL];
+		NSArray *activityData = @[shareString];
+		NSMutableArray *activityTypes = [[NSMutableArray alloc] init];
+		
+		if ([self canSendEmail])
+		{
+				[activityTypes addObject:UIActivityTypeMail];
+		}
+		if ([self canSendText])
+		{
+				[activityTypes addObject:UIActivityTypeMessage];
+		}
+		if ([self canUseFacebook])
+		{
+				[activityTypes addObject:UIActivityTypePostToFacebook];
+		}
+		if ([self canUseTwitter])
+		{
+				[activityTypes addObject:UIActivityTypePostToTwitter];
+		}
+		if ([self canUseSinaWeibo])
+		{
+				[activityTypes addObject:UIActivityTypePostToWeibo];
+		}
+
+		UIActivityViewController *activityViewController = [[UIActivityViewController alloc] initWithActivityItems:activityData applicationActivities:activityTypes];
+		
+		[activityViewController setCompletionHandler:^(NSString *activityType, BOOL completed){
+				if (completed) {
+						
+				}
+		}];
+		
+		[[[[UIApplication sharedApplication] keyWindow] rootViewController] presentViewController:activityViewController animated:YES completion:nil];
+}
+
 @end
