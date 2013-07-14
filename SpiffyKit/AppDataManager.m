@@ -24,6 +24,8 @@
 		deviceData[@"System Version"] = systemVersion;
 		
 		NSData *data = [NSJSONSerialization dataWithJSONObject:deviceData options:0 error:nil];
+		
+		
 		return data;
 }
 
@@ -31,6 +33,7 @@
 {
 		NSDictionary *defaultsData = [[NSUserDefaults standardUserDefaults] dictionaryRepresentation];
 		NSData *data = [NSJSONSerialization dataWithJSONObject:defaultsData options:0 error:nil];
+		
 		return data;
 }
 
@@ -57,13 +60,23 @@
 		localeData[@"Local Seconds From GMT"] = @(localSecondsFromGMT);
 		
 		NSData *data = [NSJSONSerialization dataWithJSONObject:localeData options:0 error:nil];
+		
 		return data;
 }
 
 + (NSData *)appData
 {
-		NSDictionary *appData = [[NSBundle mainBundle] infoDictionary];
+		NSMutableDictionary *appData = [[[NSBundle mainBundle] infoDictionary] mutableCopy];
+		
+		//	Convert NSURL objects to NSStrings
+		for (NSString *key in [appData allKeys]) {
+				if ([appData[key] isKindOfClass:[NSURL class]]) {
+						appData[key] = [(NSURL *)(appData[key]) path];
+				}
+		}
+		
 		NSData *data = [NSJSONSerialization dataWithJSONObject:appData options:0 error:nil];
+		
 		return data;
 }
 
