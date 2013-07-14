@@ -21,6 +21,11 @@
     return self;
 }
 
+- (void)setSelected:(BOOL)selected
+{
+		[self setSelected:selected animated:YES];
+}
+
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {
     [super setSelected:selected animated:animated];
@@ -28,24 +33,45 @@
     // Configure the view for the selected state
 		
 		UIColor *backgroundColor = kAppColor;
-		NSTimeInterval interval = 0.3;
+		UIColor *textColor = kCellHighlightedColor;
+		NSTimeInterval interval = 1;
 		
 		if (!selected) {
 				backgroundColor = [UIColor whiteColor];
+				textColor = kCellColor;
 		}
-		
-		if (!animated) {
-				interval = 0;
-		}
-		
+				
 		[UIView animateWithDuration:interval animations:^{
 				[self setBackgroundColor:backgroundColor];
+				[[self textLabel] setTextColor:textColor];
 		}];
+}
+
+- (void)setHighlighted:(BOOL)highlighted
+{
+		[self setHighlighted:highlighted animated:YES];
 }
 
 - (void)setHighlighted:(BOOL)highlighted animated:(BOOL)animated
 {
+    [super setHighlighted:highlighted animated:animated];
 		
+    // Configure the view for the selected state
+		
+		UIColor *backgroundColor = kAppColor;
+		UIColor *textColor = kCellHighlightedColor;
+		NSTimeInterval interval = 1;
+		
+		if (!highlighted) {
+				backgroundColor = [UIColor whiteColor];
+				textColor = kCellColor;
+		}
+		
+		[UIView animateWithDuration:interval animations:^{
+				[self setBackgroundColor:backgroundColor];
+				[[self textLabel] setTextColor:textColor];
+				
+		}];
 }
 
 @end

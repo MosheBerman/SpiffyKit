@@ -1,13 +1,11 @@
 //
-//  SpiffyKit.m
+//  SpiffyKit.h
 //  SpiffyKit
 //
 //  Created by Moshe Berman on 7/11/13.
 //  Copyright (c) 2013 Moshe Berman. All rights reserved.
 //
 
-#import "SpiffyKit.h"
+#import <Foundation/Foundation.h>
 
-@implementation SpiffyKit
-
-@end
+#import "SpiffyViewController.h"

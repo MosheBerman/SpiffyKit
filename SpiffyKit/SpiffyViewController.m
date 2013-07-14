@@ -14,10 +14,11 @@
 
 #import "Constants.h"
 
+#import "SpiffyTableViewCell.h"
+
 @interface SpiffyViewController () <MFMessageComposeViewControllerDelegate, MFMailComposeViewControllerDelegate>
 
 @property (nonatomic, strong) NSArray *labels;
-
 @property (nonatomic, strong) UIFont *font;
 
 @end
@@ -39,7 +40,7 @@
 {
     self = [super initWithStyle:UITableViewStyleGrouped];
     if (self) {
-        
+        self.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
     }
     return self;
 }
@@ -65,9 +66,12 @@
 		
 		[self setLabels:localizedLabels];
 		
-		[[self tableView] registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
+		[[self tableView] registerClass:[SpiffyTableViewCell class] forCellReuseIdentifier:@"Cell"];
 		
-		[self setFont:[UIFont fontWithName:@"AvenirNext-Condensed" size:16.0f]];
+		[self setFont:[UIFont fontWithName:@"AvenirNext-Medium" size:16.0f]];
+		
+		UIBarButtonItem *done = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(dismiss)];
+		[[self navigationItem] setLeftBarButtonItem:done animated:NO];
 }
 
 - (void)didReceiveMemoryWarning
@@ -95,22 +99,25 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    SpiffyTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     // Configure the cell...
 		
 		NSString *text = [self labels][[indexPath section]][[indexPath row]];
 		
 		[[cell textLabel] setText:text];
-		[[cell textLabel] setTextColor:kAppColor];
+		[[cell textLabel] setTextColor:kCellColor];
 		[[cell textLabel] setFont:[self font]];
+		[cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+
 		
 		[cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
-    
+
     return cell;
 }
 
 #pragma mark - Table view delegate
+
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -178,6 +185,13 @@
 - (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error
 {
 		[self dismissViewControllerAnimated:YES completion:nil];
+}
+
+#pragma mark - Done
+
+- (void)dismiss
+{
+		[[self presentingViewController] dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end
