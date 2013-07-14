@@ -29,8 +29,6 @@
 		static dispatch_once_t onceToken;
 		dispatch_once(&onceToken, ^{
 				controller = [[SpiffyViewController alloc] init];
-				SpiffyActionController *actionController = [SpiffyActionController sharedController];
-				[actionController setTargetViewController:controller];
 		});
 		return controller;
 }
@@ -38,8 +36,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-		
-		[[SpiffyActionController sharedController] setTargetViewController:self];
 		
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -147,7 +143,8 @@
 		{
 				if (0 == [indexPath row]) {
 						if ([SpiffyActionController canShare]) {
-								[SpiffyActionController showActivityViewController];
+								UIActivityViewController *activityController = [SpiffyActionController activityViewController];
+								[self presentViewController:activityController animated:YES completion:nil];
 						}
 						else
 						{
@@ -178,7 +175,9 @@
 		}
 		else if (1 == [indexPath section])
 		{
-				[SpiffyActionController showSupportEmail];
+				MFMailComposeViewController *composer = (MFMailComposeViewController *)[SpiffyActionController supportEmailComposer];
+				[composer setMailComposeDelegate:self];
+				[self presentViewController:composer animated:YES completion:nil];
 		}
 }
 
