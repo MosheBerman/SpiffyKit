@@ -125,7 +125,7 @@
 				}
 		}];
 		
-		[[self targetViewController] presentViewController:activityViewController animated:YES completion:nil];
+		[[[self sharedController] targetViewController] presentViewController:activityViewController animated:YES completion:nil];
 }
 
 + (void)showSupportEmail
