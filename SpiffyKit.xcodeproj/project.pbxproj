@@ -17,6 +17,7 @@
 		463A4FF1178EF78200B29C30 /* SpiffyKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 463A4FF0178EF78200B29C30 /* SpiffyKitTests.m */; };
 		465E3885179263740007346D /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 465E3884179263740007346D /* MessageUI.framework */; };
 		465E38DE179274300007346D /* AppDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 465E38DD179274300007346D /* AppDataManager.m */; };
+		46A23FB417927A3A00F58FCF /* SpiffyViewController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4639EC7617925B570043B19C /* SpiffyViewController.h */; };
 		46DB00FF1792613400F92209 /* SpiffyActionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46DB00FE1792613400F92209 /* SpiffyActionController.m */; };
 		46DB01001792613400F92209 /* SpiffyActionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46DB00FE1792613400F92209 /* SpiffyActionController.m */; };
 		46DB01051792625D00F92209 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46DB01031792625100F92209 /* UIKit.framework */; };
@@ -40,6 +41,7 @@
 			dstPath = "include/${PRODUCT_NAME}";
 			dstSubfolderSpec = 16;
 			files = (
+				46A23FB417927A3A00F58FCF /* SpiffyViewController.h in CopyFiles */,
 				463A4FD8178EF78100B29C30 /* SpiffyKit.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
