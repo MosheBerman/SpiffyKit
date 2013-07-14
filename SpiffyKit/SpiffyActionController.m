@@ -77,38 +77,13 @@
 + (UIActivityViewController *)activityViewController
 {
 		
-		NSString *shareString = [self _shareMessage];
-		NSArray *activityData = @[shareString];
-		NSMutableArray *activityTypes = [[NSMutableArray alloc] init];
+		NSString *shareMessage = [self _shareMessage];
+
+		NSArray *items = @[shareMessage];
 		
-		if ([self canSendEmail])
-		{
-				[activityTypes addObject:UIActivityTypeMail];
-		}
-		if ([self canSendText])
-		{
-				[activityTypes addObject:UIActivityTypeMessage];
-		}
-		if ([self canUseFacebook])
-		{
-				[activityTypes addObject:UIActivityTypePostToFacebook];
-		}
-		if ([self canUseTwitter])
-		{
-				[activityTypes addObject:UIActivityTypePostToTwitter];
-		}
-		if ([self canUseSinaWeibo])
-		{
-				[activityTypes addObject:UIActivityTypePostToWeibo];
-		}
+		UIActivityViewController *activityViewController = [[UIActivityViewController alloc] initWithActivityItems:items applicationActivities:nil];
 		
-		UIActivityViewController *activityViewController = [[UIActivityViewController alloc] initWithActivityItems:activityTypes applicationActivities:activityData];
-		
-		[activityViewController setCompletionHandler:^(NSString *activityType, BOOL completed){
-				if (completed) {
-						
-				}
-		}];
+		[activityViewController setCompletionHandler:nil];
 
 		return activityViewController;
 		
@@ -165,6 +140,7 @@
 		NSString *shareString = [NSString stringWithFormat:@"I think you'd like to check out %@ on the App Store. You can download it at %@.", kAppName, kAppURL];
 		return shareString;
 }
+
 
 #pragma mark - Support Subject and Message
 
