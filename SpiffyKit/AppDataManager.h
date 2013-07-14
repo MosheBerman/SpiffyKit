@@ -16,4 +16,6 @@
 + (NSData *)localeData;
 + (NSData *)appData;
 
++ (NSString *)appName;
+
 @end

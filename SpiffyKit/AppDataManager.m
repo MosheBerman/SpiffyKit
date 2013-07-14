@@ -80,5 +80,10 @@
 		return data;
 }
 
++ (NSString *)appName
+{
+		return [[NSBundle mainBundle] infoDictionary][@"CFBundleName"];
+}
+
 
 @end
