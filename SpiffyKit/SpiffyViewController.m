@@ -18,10 +18,15 @@
 
 #import "AppDataManager.h"
 
+#import <QuartzCore/QuartzCore.h>
+
 @interface SpiffyViewController () <MFMessageComposeViewControllerDelegate, MFMailComposeViewControllerDelegate>
 
 @property (nonatomic, strong) NSArray *labels;
 @property (nonatomic, strong) UIFont *font;
+
+@property (nonatomic, strong) UIView *headerView;
+@property (nonatomic, strong) UIImageView *imageView;
 
 @end
 
@@ -56,13 +61,7 @@
 {
     [super viewDidLoad];
 		
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-		
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-		
-		
+		//	Table labels
 		NSArray *localizedLabelsForSectionZero = @[NSLocalizedString(@"Share", @"A label which allows users to share apps via social media and email."),
 																						 NSLocalizedString(@"Review", @"A label for a button which allows users to review the app on the store."),
 																						 NSLocalizedString(@"More Apps", @"A label for a button which shows more apps from the same developer.")];
@@ -73,14 +72,45 @@
 		
 		[self setLabels:localizedLabels];
 		
+		//	Table Cell
 		[[self tableView] registerClass:[SpiffyTableViewCell class] forCellReuseIdentifier:@"Cell"];
 		
+		//	Table Font
 		[self setFont:[UIFont fontWithName:@"AvenirNext-Medium" size:16.0f]];
 		
 		//	Done Button
 		UIBarButtonItem *done = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(dismiss)];
 		[[self navigationItem] setLeftBarButtonItem:done animated:NO];
+		
+		//	Image View
+		NSString *imageName = [[NSBundle mainBundle] infoDictionary][@"CFBundleIconFiles"][0];
+		UIImage *appIcon = [UIImage imageNamed: imageName];
+		UIImageView *appIconView = [[UIImageView alloc] initWithImage:appIcon];
 
+		CGRect bounds = [appIconView bounds];
+		bounds.size = CGSizeMake(114, 114);
+		[appIconView setFrame:bounds];
+		
+		//	Image radius
+		CGFloat radius = (10.0f/57.0f)*appIconView.frame.size.height;
+		[[appIconView layer] setCornerRadius:radius];
+		
+		[self setImageView:appIconView];
+		
+		//	Header View
+		UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 114)];
+		[self setHeaderView:headerView];
+		
+		//	Center the image in the header...
+		bounds = [appIconView bounds];
+		bounds.origin = CGPointMake(headerView.frame.size.width/2 - bounds.size.width/2, 0);
+		[appIconView setFrame:bounds];
+		
+		//	...even on rotation
+		[appIconView setAutoresizingMask:UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin];
+		
+		//	Install the image in the header
+		[headerView addSubview:appIconView];
 }
 
 - (void)didReceiveMemoryWarning
@@ -189,6 +219,24 @@
 				UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title message:messageFormat delegate:nil cancelButtonTitle:cancelButtonTitle otherButtonTitles: nil];
 				[alert show];
 		}
+}
+
+#pragma mark - Table Header
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+		if (0 == section) {
+				return [[self headerView] frame].size.height;
+		}
+		return 0;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+		if (0 == section) {
+				return [self headerView];
+		}
+		return nil;
 }
 
 #pragma mark - MFMessageComposeViewControllerDelegate
