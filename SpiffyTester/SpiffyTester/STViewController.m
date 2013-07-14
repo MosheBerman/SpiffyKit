@@ -31,7 +31,7 @@
 
 - (void)showSpiffyView
 {
-		SpiffyAboutViewController *spiffyViewController = [[SpiffyAboutViewController alloc] init];
+		SpiffyViewController *spiffyViewController = [[SpiffyViewController alloc] init];
 		
 		[self presentViewController:spiffyViewController animated:YES completion:nil];
 
