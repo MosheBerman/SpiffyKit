@@ -11,8 +11,6 @@
 
 #define kAppStoreIdentifier @"{App Store Identifier}"
 
-#define kAppName @"{App Name}"
-
 #define kAppURL @"{App URL}"
 
 #define kSupportEmailAddress @"yetanotheriphoneapp@gmail.com"
