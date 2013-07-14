@@ -7,15 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4639EC7817925B570043B19C /* SpiffyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4639EC7717925B570043B19C /* SpiffyViewController.m */; };
 		463A4FD3178EF78100B29C30 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 463A4FD2178EF78100B29C30 /* Foundation.framework */; };
 		463A4FD8178EF78100B29C30 /* SpiffyKit.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 463A4FD7178EF78100B29C30 /* SpiffyKit.h */; };
 		463A4FDA178EF78100B29C30 /* SpiffyKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 463A4FD9178EF78100B29C30 /* SpiffyKit.m */; };
 		463A4FE2178EF78200B29C30 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 463A4FE1178EF78100B29C30 /* SenTestingKit.framework */; };
-		463A4FE4178EF78200B29C30 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 463A4FE3178EF78200B29C30 /* UIKit.framework */; };
 		463A4FE5178EF78200B29C30 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 463A4FD2178EF78100B29C30 /* Foundation.framework */; };
 		463A4FE8178EF78200B29C30 /* libSpiffyKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 463A4FCF178EF78100B29C30 /* libSpiffyKit.a */; };
 		463A4FEE178EF78200B29C30 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 463A4FEC178EF78200B29C30 /* InfoPlist.strings */; };
 		463A4FF1178EF78200B29C30 /* SpiffyKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 463A4FF0178EF78200B29C30 /* SpiffyKitTests.m */; };
+		46DB00FF1792613400F92209 /* SpiffyActionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46DB00FE1792613400F92209 /* SpiffyActionController.m */; };
+		46DB01001792613400F92209 /* SpiffyActionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46DB00FE1792613400F92209 /* SpiffyActionController.m */; };
+		46DB01051792625D00F92209 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46DB01031792625100F92209 /* UIKit.framework */; };
+		46DB01071792626500F92209 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46DB01061792626500F92209 /* Social.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +46,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		4639EC7617925B570043B19C /* SpiffyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpiffyViewController.h; sourceTree = "<group>"; };
+		4639EC7717925B570043B19C /* SpiffyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpiffyViewController.m; sourceTree = "<group>"; };
+		4639EC7917925B6F0043B19C /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		463A4FCF178EF78100B29C30 /* libSpiffyKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSpiffyKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		463A4FD2178EF78100B29C30 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		463A4FD6178EF78100B29C30 /* SpiffyKit-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SpiffyKit-Prefix.pch"; sourceTree = "<group>"; };
@@ -49,11 +56,14 @@
 		463A4FD9178EF78100B29C30 /* SpiffyKit.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SpiffyKit.m; sourceTree = "<group>"; };
 		463A4FE0178EF78100B29C30 /* SpiffyKitTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpiffyKitTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		463A4FE1178EF78100B29C30 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		463A4FE3178EF78200B29C30 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		463A4FEB178EF78200B29C30 /* SpiffyKitTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SpiffyKitTests-Info.plist"; sourceTree = "<group>"; };
 		463A4FED178EF78200B29C30 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		463A4FEF178EF78200B29C30 /* SpiffyKitTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SpiffyKitTests.h; sourceTree = "<group>"; };
 		463A4FF0178EF78200B29C30 /* SpiffyKitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SpiffyKitTests.m; sourceTree = "<group>"; };
+		46DB00FD1792613400F92209 /* SpiffyActionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpiffyActionController.h; sourceTree = "<group>"; };
+		46DB00FE1792613400F92209 /* SpiffyActionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpiffyActionController.m; sourceTree = "<group>"; };
+		46DB01031792625100F92209 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		46DB01061792626500F92209 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +71,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				46DB01071792626500F92209 /* Social.framework in Frameworks */,
+				46DB01051792625D00F92209 /* UIKit.framework in Frameworks */,
 				463A4FD3178EF78100B29C30 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -70,7 +82,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				463A4FE2178EF78200B29C30 /* SenTestingKit.framework in Frameworks */,
-				463A4FE4178EF78200B29C30 /* UIKit.framework in Frameworks */,
 				463A4FE5178EF78200B29C30 /* Foundation.framework in Frameworks */,
 				463A4FE8178EF78200B29C30 /* libSpiffyKit.a in Frameworks */,
 			);
@@ -101,9 +112,10 @@
 		463A4FD1178EF78100B29C30 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				46DB01061792626500F92209 /* Social.framework */,
 				463A4FD2178EF78100B29C30 /* Foundation.framework */,
 				463A4FE1178EF78100B29C30 /* SenTestingKit.framework */,
-				463A4FE3178EF78200B29C30 /* UIKit.framework */,
+				46DB01031792625100F92209 /* UIKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -113,6 +125,9 @@
 			children = (
 				463A4FD7178EF78100B29C30 /* SpiffyKit.h */,
 				463A4FD9178EF78100B29C30 /* SpiffyKit.m */,
+				4639EC7917925B6F0043B19C /* Constants.h */,
+				46DB01011792613F00F92209 /* View Controller */,
+				46DB01021792614900F92209 /* Action Controller */,
 				463A4FD5178EF78100B29C30 /* Supporting Files */,
 			);
 			path = SpiffyKit;
@@ -143,6 +158,24 @@
 				463A4FEC178EF78200B29C30 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		46DB01011792613F00F92209 /* View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				4639EC7617925B570043B19C /* SpiffyViewController.h */,
+				4639EC7717925B570043B19C /* SpiffyViewController.m */,
+			);
+			name = "View Controller";
+			sourceTree = "<group>";
+		};
+		46DB01021792614900F92209 /* Action Controller */ = {
+			isa = PBXGroup;
+			children = (
+				46DB00FD1792613400F92209 /* SpiffyActionController.h */,
+				46DB00FE1792613400F92209 /* SpiffyActionController.m */,
+			);
+			name = "Action Controller";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -244,6 +277,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				463A4FDA178EF78100B29C30 /* SpiffyKit.m in Sources */,
+				4639EC7817925B570043B19C /* SpiffyViewController.m in Sources */,
+				46DB00FF1792613400F92209 /* SpiffyActionController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -252,6 +287,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				463A4FF1178EF78200B29C30 /* SpiffyKitTests.m in Sources */,
+				46DB01001792613400F92209 /* SpiffyActionController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -403,6 +439,7 @@
 				463A4FF6178EF78200B29C30 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		463A4FF7178EF78200B29C30 /* Build configuration list for PBXNativeTarget "SpiffyKitTests" */ = {
 			isa = XCConfigurationList;
@@ -411,6 +448,7 @@
 				463A4FF9178EF78200B29C30 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
