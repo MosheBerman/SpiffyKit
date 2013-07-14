@@ -10,7 +10,11 @@
 
 #import "SpiffyViewController.h"
 
+#import "Constants.h"
+
 @interface SpiffyAboutViewController ()
+
+@property (nonatomic, strong) UIColor *originalColor;
 
 @end
 
@@ -25,12 +29,29 @@
     }
     return self;
 }
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
 		
-		[[self navigationBar] setTintColor:[UIColor orangeColor]];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+		[super viewWillAppear:animated];
+		
+		[self setOriginalColor:[[UINavigationBar appearance] tintColor]];
+		[[UINavigationBar appearance] setTintColor:kAppColor];
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+		[super viewDidDisappear:animated];
+		
+		[[UINavigationBar appearance] setTintColor:[self originalColor]];
+		
+		
 }
 
 - (void)didReceiveMemoryWarning
