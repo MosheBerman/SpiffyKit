@@ -83,7 +83,7 @@
 		[[self navigationItem] setLeftBarButtonItem:done animated:NO];
 		
 		//	Image View
-		NSString *imageName = [self appIconName];
+		NSString *imageName = [AppDataManager appIconName];
 		UIImage *appIcon = [UIImage imageNamed: imageName];
 		UIImageView *appIconView = [[UIImageView alloc] initWithImage:appIcon];
 
@@ -231,7 +231,7 @@
 		if (0 == section)
 		{
 
-				NSString *imageName = [self appIconName];
+				NSString *imageName = [AppDataManager appIconName];
 				
 				if (imageName) {
 						
@@ -271,19 +271,5 @@
 		[[self presentingViewController] dismissViewControllerAnimated:YES completion:nil];
 }
 
-#pragma mark - App Icon Name
-
-- (NSString *)appIconName
-{
-		
-		NSString *imageName = [[NSBundle mainBundle] infoDictionary][@"CFBundleIconFiles"][0];
-		
-		if(!imageName)
-		{
-				imageName = [[NSBundle mainBundle] infoDictionary][@"CFBundleIcons"][@"CFBundlePrimaryIcon"][@"CFBundleIconFiles"][0];
-		}
-		
-		return imageName;
-}
 
 @end
