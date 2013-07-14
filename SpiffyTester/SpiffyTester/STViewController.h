@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <SpiffyKit/SpiffyKit.h>
 
 @interface STViewController : UIViewController
+
+@property (strong, nonatomic) IBOutlet UIButton *showSpiffyViewButton;
+
 
 @end
