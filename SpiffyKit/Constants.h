@@ -9,11 +9,11 @@
 #ifndef SpiffyKit_Constants_h
 #define SpiffyKit_Constants_h
 
-#define kAppStoreIdentifier @""
+#define kAppStoreIdentifier @"{App Store Identifier}"
 
-#define kAppName @""
+#define kAppName @"{App Name}"
 
-#define kAppURL @""
+#define kAppURL @"{App URL}"
 
 #define kSupportEmailAddress @"yetanotheriphoneapp@gmail.com"
 
