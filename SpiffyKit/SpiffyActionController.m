@@ -14,26 +14,11 @@
 
 #import "AppDataManager.h"
 
-@interface SpiffyActionController () <MFMailComposeViewControllerDelegate, MFMessageComposeViewControllerDelegate>
+@interface SpiffyActionController ()
 
 @end
 
 @implementation SpiffyActionController
-
-#pragma mark - Singleton
-
-- (SpiffyActionController *)sharedController
-{
-		
-		SpiffyActionController *actionController = nil;
-		
-		static dispatch_once_t onceToken;
-		dispatch_once(&onceToken, ^{
-				actionController = [[SpiffyActionController alloc] init];
-		});
-		
-		return actionController;
-}
 
 #pragma mark - Messaging Availability Checks
 
@@ -89,10 +74,10 @@
 
 #pragma mark - Present a UIActivityViewController
 
-+ (void)showActivityViewController
++ (UIActivityViewController *)activityViewController
 {
 		
-		NSString *shareString = [NSString stringWithFormat:@"I think you'd like to check out %@ on the App Store. You can download it at %@.", kAppName, kAppURL];
+		NSString *shareString = [self _shareMessage];
 		NSArray *activityData = @[shareString];
 		NSMutableArray *activityTypes = [[NSMutableArray alloc] init];
 		
@@ -117,35 +102,39 @@
 				[activityTypes addObject:UIActivityTypePostToWeibo];
 		}
 		
-		UIActivityViewController *activityViewController = [[UIActivityViewController alloc] initWithActivityItems:activityData applicationActivities:activityTypes];
+		UIActivityViewController *activityViewController = [[UIActivityViewController alloc] initWithActivityItems:activityTypes applicationActivities:activityData];
 		
 		[activityViewController setCompletionHandler:^(NSString *activityType, BOOL completed){
 				if (completed) {
 						
 				}
 		}];
+
+		return activityViewController;
 		
-		[[[self sharedController] targetViewController] presentViewController:activityViewController animated:YES completion:nil];
 }
 
-+ (void)showSupportEmail
++ (MFMailComposeViewController *)supportEmailComposer
 {
-		[self showMailComposerWithSubject:[self _supportSubject] andMessage:[self _supportMessage] andAttachments:[self _supportAttachments]];
+		return [self showMailComposerWithSubject:[self _supportSubject] andMessage:[self _supportMessage] andAttachments:[self _supportAttachments]];
 }
 
-+ (void)showShareEmail
++ (MFMailComposeViewController *)shareEmailComposer
 {
-		[self showMailComposerWithSubject:[self _shareSubject] andMessage:[self _shareMessage] andAttachments:nil];
+		return [self showMailComposerWithSubject:[self _shareSubject] andMessage:[self _shareMessage] andAttachments:nil];
 }
 
 #pragma mark - Present an MFMailComposer
 
-+ (void)showMailComposerWithSubject:(NSString *)subject andMessage:(NSString *)message andAttachments:(NSDictionary *)attachments
++ (MFMailComposeViewController *)showMailComposerWithSubject:(NSString *)subject andMessage:(NSString *)message andAttachments:(NSDictionary *)attachments
 {
+		MFMailComposeViewController *mailComposeViewController;
+		
 		if ([MFMailComposeViewController canSendMail])
 		{
 				
-				MFMailComposeViewController *mailComposeViewController = [[MFMailComposeViewController alloc] init];
+				
+				mailComposeViewController = [[MFMailComposeViewController alloc] init];
 				
 				[mailComposeViewController setToRecipients:@[kSupportEmailAddress]];
 				
@@ -153,17 +142,14 @@
 				
 				[mailComposeViewController setMessageBody:message isHTML:NO];
 				
-				[mailComposeViewController setMailComposeDelegate:[self targetViewController]];
-				
 				for (NSString *attachmentKey in [attachments allKeys]) {
 						
 						NSString *filename = [NSString stringWithFormat:@"%@.txt", attachmentKey];
 						
 						[mailComposeViewController addAttachmentData:attachments[attachmentKey] mimeType:@"text/plain" fileName:filename];
 				}
-				
-				[[self targetViewController] presentViewController:mailComposeViewController animated:YES completion:nil];
 		}
+				return mailComposeViewController;		
 }
 
 #pragma mark - Share Subject and Message
@@ -176,8 +162,8 @@
 
 + (NSString *)_shareMessage
 {
-		#warning Unimplemented share method
-		return @"";
+		NSString *shareString = [NSString stringWithFormat:@"I think you'd like to check out %@ on the App Store. You can download it at %@.", kAppName, kAppURL];
+		return shareString;
 }
 
 #pragma mark - Support Subject and Message
@@ -190,10 +176,7 @@
 
 + (NSString *)_supportMessage
 {
-		
-		#warning Unimplemented support method
-		
-		return @"";
+		return [NSString stringWithFormat:@"I'm using %@ and I'd like to talk to you about it.\n\n", kAppName];
 }
 
 + (NSDictionary *)_supportAttachments
