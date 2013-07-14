@@ -16,6 +16,7 @@
 		463A4FE8178EF78200B29C30 /* libSpiffyKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 463A4FCF178EF78100B29C30 /* libSpiffyKit.a */; };
 		463A4FEE178EF78200B29C30 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 463A4FEC178EF78200B29C30 /* InfoPlist.strings */; };
 		463A4FF1178EF78200B29C30 /* SpiffyKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 463A4FF0178EF78200B29C30 /* SpiffyKitTests.m */; };
+		465E3885179263740007346D /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 465E3884179263740007346D /* MessageUI.framework */; };
 		46DB00FF1792613400F92209 /* SpiffyActionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46DB00FE1792613400F92209 /* SpiffyActionController.m */; };
 		46DB01001792613400F92209 /* SpiffyActionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46DB00FE1792613400F92209 /* SpiffyActionController.m */; };
 		46DB01051792625D00F92209 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46DB01031792625100F92209 /* UIKit.framework */; };
@@ -60,6 +61,7 @@
 		463A4FED178EF78200B29C30 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		463A4FEF178EF78200B29C30 /* SpiffyKitTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SpiffyKitTests.h; sourceTree = "<group>"; };
 		463A4FF0178EF78200B29C30 /* SpiffyKitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SpiffyKitTests.m; sourceTree = "<group>"; };
+		465E3884179263740007346D /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		46DB00FD1792613400F92209 /* SpiffyActionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpiffyActionController.h; sourceTree = "<group>"; };
 		46DB00FE1792613400F92209 /* SpiffyActionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpiffyActionController.m; sourceTree = "<group>"; };
 		46DB01031792625100F92209 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -71,6 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				465E3885179263740007346D /* MessageUI.framework in Frameworks */,
 				46DB01071792626500F92209 /* Social.framework in Frameworks */,
 				46DB01051792625D00F92209 /* UIKit.framework in Frameworks */,
 				463A4FD3178EF78100B29C30 /* Foundation.framework in Frameworks */,
@@ -112,6 +115,7 @@
 		463A4FD1178EF78100B29C30 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				465E3884179263740007346D /* MessageUI.framework */,
 				46DB01061792626500F92209 /* Social.framework */,
 				463A4FD2178EF78100B29C30 /* Foundation.framework */,
 				463A4FE1178EF78100B29C30 /* SenTestingKit.framework */,
