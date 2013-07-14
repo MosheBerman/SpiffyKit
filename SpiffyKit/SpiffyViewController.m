@@ -48,8 +48,10 @@
 		
 		NSArray *localizedLabels = @[localizedLabelsForSectionZero, localizedLabelsForSectionOne];
 		
-		
 		[self setLabels:localizedLabels];
+		
+		[[self tableView] registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
+
 }
 
 - (void)didReceiveMemoryWarning
