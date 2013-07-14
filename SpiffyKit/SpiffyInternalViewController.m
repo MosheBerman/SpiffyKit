@@ -88,7 +88,7 @@
 		UIImageView *appIconView = [[UIImageView alloc] initWithImage:appIcon];
 
 		CGRect bounds = [appIconView bounds];
-		bounds.size = CGSizeMake(114, 114);
+		bounds.size = CGSizeMake(57, 57);
 		[appIconView setFrame:bounds];
 		
 		//	Image radius
@@ -99,7 +99,7 @@
 		[self setImageView:appIconView];
 		
 		//	Header View
-		UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 130)];
+		UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, bounds.size.height + 10)];
 		[self setHeaderView:headerView];
 		
 		//	Center the image in the header...
