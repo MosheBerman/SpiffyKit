@@ -25,4 +25,8 @@
 
 #define kAppColor [UIColor orangeColor]
 
+#define kCellColor [UIColor blackColor]
+
+#define kCellHighlightedColor [UIColor whiteColor]
+
 #endif
