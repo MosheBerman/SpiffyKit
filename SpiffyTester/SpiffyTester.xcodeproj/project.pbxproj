@@ -24,6 +24,7 @@
 		465E38BC17926ACE0007346D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 465E389417926ACD0007346D /* Foundation.framework */; };
 		465E38C417926ACE0007346D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 465E38C217926ACE0007346D /* InfoPlist.strings */; };
 		465E38C717926ACE0007346D /* SpiffyTesterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 465E38C617926ACE0007346D /* SpiffyTesterTests.m */; };
+		466D72CF1792F7E0002CB158 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 466D72CE1792F7E0002CB158 /* Icon@2x.png */; };
 		46A23FC017927AA200F58FCF /* libSpiffyKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 46A23FBB17927A9800F58FCF /* libSpiffyKit.a */; };
 		46A23FC217927ABB00F58FCF /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46A23FC117927ABB00F58FCF /* MessageUI.framework */; };
 		46A23FC417927AC000F58FCF /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46A23FC317927AC000F58FCF /* Social.framework */; };
@@ -84,6 +85,7 @@
 		465E38C317926ACE0007346D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		465E38C517926ACE0007346D /* SpiffyTesterTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SpiffyTesterTests.h; sourceTree = "<group>"; };
 		465E38C617926ACE0007346D /* SpiffyTesterTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SpiffyTesterTests.m; sourceTree = "<group>"; };
+		466D72CE1792F7E0002CB158 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		46A23FB517927A9800F58FCF /* SpiffyKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SpiffyKit.xcodeproj; path = ../SpiffyKit.xcodeproj; sourceTree = "<group>"; };
 		46A23FC117927ABB00F58FCF /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		46A23FC317927AC000F58FCF /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
@@ -119,6 +121,7 @@
 		465E388617926ACD0007346D = {
 			isa = PBXGroup;
 			children = (
+				466D72CE1792F7E0002CB158 /* Icon@2x.png */,
 				465E389817926ACD0007346D /* SpiffyTester */,
 				465E38BF17926ACE0007346D /* SpiffyTesterTests */,
 				465E389117926ACD0007346D /* Frameworks */,
@@ -138,9 +141,9 @@
 		465E389117926ACD0007346D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				46A23FB517927A9800F58FCF /* SpiffyKit.xcodeproj */,
 				46A23FC317927AC000F58FCF /* Social.framework */,
 				46A23FC117927ABB00F58FCF /* MessageUI.framework */,
-				46A23FB517927A9800F58FCF /* SpiffyKit.xcodeproj */,
 				465E389217926ACD0007346D /* UIKit.framework */,
 				465E389417926ACD0007346D /* Foundation.framework */,
 				465E389617926ACD0007346D /* CoreGraphics.framework */,
@@ -307,6 +310,7 @@
 				465E38A917926ACE0007346D /* Default-568h@2x.png in Resources */,
 				465E38AF17926ACE0007346D /* STViewController_iPhone.xib in Resources */,
 				465E38B217926ACE0007346D /* STViewController_iPad.xib in Resources */,
+				466D72CF1792F7E0002CB158 /* Icon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
