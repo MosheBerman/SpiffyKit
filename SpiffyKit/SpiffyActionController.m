@@ -13,7 +13,7 @@
 
 @implementation SpiffyActionController
 
-#pragma mark - Feature Availability Checks
+#pragma mark - Messaging Availability Checks
 
 + (BOOL)canSendEmail
 {
@@ -25,24 +25,38 @@
 		return [MFMessageComposeViewController canSendText];
 }
 
+#pragma mark - Social Services Availability Checks
+
 + (BOOL)canUseTwitter
 {
-		return [self canUseSocialService:SLServiceTypeTwitter];
+		return [self _canUseSocialService:SLServiceTypeTwitter];
 }
 
 + (BOOL)canUseFacebook
 {
-		return [self canUseSocialService:SLServiceTypeFacebook];
+		return [self _canUseSocialService:SLServiceTypeFacebook];
 }
 
 + (BOOL)canUseSinaWeibo
 {
-		return [self canUseSocialService:SLServiceTypeSinaWeibo];
+		return [self _canUseSocialService:SLServiceTypeSinaWeibo];
 }
 
-+ (BOOL)canUseSocialService:(NSString *)serviceType
+
++ (BOOL)_canUseSocialService:(NSString *)serviceType
 {
 		return [SLComposeViewController isAvailableForServiceType:serviceType];
 }
 
+#pragma mark - Generalized Feature Availability Checks
+
++ (BOOL)canUseAtLeastOneSocialService
+{
+		return [self canUseTwitter] || [self canUseFacebook] || [self canUseSinaWeibo];
+}
+
++ (BOOL)canShare
+{
+		
+}
 @end

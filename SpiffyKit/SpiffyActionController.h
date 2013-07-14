@@ -10,13 +10,20 @@
 
 @interface SpiffyActionController : NSObject
 
-#pragma mark - Feature Availability Checks
+#pragma mark - Messaging Availability Checks
 
 + (BOOL)canSendEmail;
 + (BOOL)canSendText;
 
+#pragma mark - Social Services Availability Checks
+
 + (BOOL)canUseTwitter;
 + (BOOL)canUseFacebook;
 + (BOOL)canUseSinaWeibo;
+
+#pragma mark - Generalized Feature Availability Checks
+
++ (BOOL)canUseAtLeastOneSocialService;	//	True if one or more of the three above is true
++ (BOOL)canShare;												//	True if one of social or messaging services are enabled.
 
 @end
