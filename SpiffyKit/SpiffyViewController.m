@@ -83,7 +83,7 @@
 		[[self navigationItem] setLeftBarButtonItem:done animated:NO];
 		
 		//	Image View
-		NSString *imageName = [[NSBundle mainBundle] infoDictionary][@"CFBundleIconFiles"][0];
+		NSString *imageName = [self appIconName];
 		UIImage *appIcon = [UIImage imageNamed: imageName];
 		UIImageView *appIconView = [[UIImageView alloc] initWithImage:appIcon];
 
@@ -94,16 +94,17 @@
 		//	Image radius
 		CGFloat radius = (10.0f/57.0f)*appIconView.frame.size.height;
 		[[appIconView layer] setCornerRadius:radius];
+		[appIconView setClipsToBounds:YES];
 		
 		[self setImageView:appIconView];
 		
 		//	Header View
-		UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 114)];
+		UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 130)];
 		[self setHeaderView:headerView];
 		
 		//	Center the image in the header...
 		bounds = [appIconView bounds];
-		bounds.origin = CGPointMake(headerView.frame.size.width/2 - bounds.size.width/2, 0);
+		bounds.origin = CGPointMake(headerView.frame.size.width/2 - bounds.size.width/2, headerView.frame.size.height/2 - bounds.size.height/2);
 		[appIconView setFrame:bounds];
 		
 		//	...even on rotation
@@ -229,7 +230,8 @@
 		CGFloat height = 0;
 		if (0 == section)
 		{
-						NSString *imageName = [[NSBundle mainBundle] infoDictionary][@"CFBundleIconFiles"][0];
+
+				NSString *imageName = [self appIconName];
 				
 				if (imageName) {
 						
@@ -267,6 +269,21 @@
 - (void)dismiss
 {
 		[[self presentingViewController] dismissViewControllerAnimated:YES completion:nil];
+}
+
+#pragma mark - App Icon Name
+
+- (NSString *)appIconName
+{
+		
+		NSString *imageName = [[NSBundle mainBundle] infoDictionary][@"CFBundleIconFiles"][0];
+		
+		if(!imageName)
+		{
+				imageName = [[NSBundle mainBundle] infoDictionary][@"CFBundleIcons"][@"CFBundlePrimaryIcon"][@"CFBundleIconFiles"][0];
+		}
+		
+		return imageName;
 }
 
 @end
