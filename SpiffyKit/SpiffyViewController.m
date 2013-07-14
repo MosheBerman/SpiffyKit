@@ -16,6 +16,8 @@
 
 #import "SpiffyTableViewCell.h"
 
+#import "AppDataManager.h"
+
 @interface SpiffyViewController () <MFMessageComposeViewControllerDelegate, MFMailComposeViewControllerDelegate>
 
 @property (nonatomic, strong) NSArray *labels;
@@ -40,7 +42,7 @@
 {
     self = [super initWithStyle:UITableViewStyleGrouped];
     if (self) {
-        self.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+
     }
     return self;
 }
@@ -70,8 +72,17 @@
 		
 		[self setFont:[UIFont fontWithName:@"AvenirNext-Medium" size:16.0f]];
 		
+		//	Done Button
 		UIBarButtonItem *done = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(dismiss)];
 		[[self navigationItem] setLeftBarButtonItem:done animated:NO];
+		
+		// Transition
+		[self setModalTransitionStyle: UIModalTransitionStyleFlipHorizontal];
+		
+		//	Title
+		
+		NSString *name = [AppDataManager appName];
+		[[self navigationItem] setTitle:name];
 }
 
 - (void)didReceiveMemoryWarning
@@ -170,6 +181,15 @@
 {
 		if ([[UIApplication sharedApplication] canOpenURL:url]) {
 				[[UIApplication sharedApplication] openURL:url];
+		}
+		else
+		{
+				NSString *title = NSLocalizedString(@"Invalid Address", @"A title for an alert explaining that a given URL is unavaialable");
+				NSString *message = NSLocalizedString(@"This app is trying to open a web address that your %@ doesn't know how to handle.", @"A message for when sharing is disabled.");
+				NSString *messageFormat = [NSString stringWithFormat:message, [[UIDevice currentDevice] localizedModel]];
+				NSString *cancelButtonTitle = NSLocalizedString(@"Dismiss", @"A title to dismiss an error message.");
+				UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title message:messageFormat delegate:nil cancelButtonTitle:cancelButtonTitle otherButtonTitles: nil];
+				[alert show];
 		}
 }
 
