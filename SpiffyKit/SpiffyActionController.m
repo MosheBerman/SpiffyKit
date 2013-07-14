@@ -157,13 +157,13 @@
 
 + (NSString *)_shareSubject
 {
-		return [NSString stringWithFormat:@"Check out %@!", kAppName];
+		return [NSString stringWithFormat:@"Check out %@!", [AppDataManager appName]];
 		
 }
 
 + (NSString *)_shareMessage
 {
-		NSString *shareString = [NSString stringWithFormat:@"I think you'd like to check out %@ on the App Store. You can download it at %@.", kAppName, kAppURL];
+		NSString *shareString = [NSString stringWithFormat:@"I think you'd like to check out %@ on the App Store. You can download it at %@.", [AppDataManager appName], kAppURL];
 		return shareString;
 }
 
@@ -172,13 +172,13 @@
 
 + (NSString *)_supportSubject
 {
-		return [NSString stringWithFormat:@"%@ Support Request", kAppName];
+		return [NSString stringWithFormat:@"%@ Support Request", [AppDataManager appName]];
 		
 }
 
 + (NSString *)_supportMessage
 {
-		return [NSString stringWithFormat:@"I'm using %@ and I'd like to talk to you about it.\n\n", kAppName];
+		return [NSString stringWithFormat:@"I'm using %@ and I'd like to talk to you about it.\n\n", [AppDataManager appName]];
 }
 
 + (NSDictionary *)_supportAttachments
