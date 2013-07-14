@@ -8,8 +8,15 @@
 
 #import <Foundation/Foundation.h>
 
-
-
 @interface SpiffyActionController : NSObject
+
+#pragma mark - Feature Availability Checks
+
++ (BOOL)canSendEmail;
++ (BOOL)canSendText;
+
++ (BOOL)canUseTwitter;
++ (BOOL)canUseFacebook;
++ (BOOL)canUseSinaWeibo;
 
 @end
