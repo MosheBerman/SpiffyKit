@@ -60,4 +60,9 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (CGSize)contentSizeForViewInPopover
+{
+		return CGSizeMake(320, 480);
+}
+
 @end
