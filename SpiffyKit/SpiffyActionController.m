@@ -12,6 +12,12 @@
 #import <MessageUI/MessageUI.h>
 #import <Social/Social.h>
 
+#import "AppDataManager.h"
+
+@interface SpiffyActionController () <MFMailComposeViewControllerDelegate, MFMessageComposeViewControllerDelegate>
+
+@end
+
 @implementation SpiffyActionController
 
 #pragma mark - Messaging Availability Checks
@@ -66,9 +72,9 @@
 		return [self canUseAtLeastOneSocialService] || [self canUseAtLeastOneMessagingService];
 }
 
-#pragma mark - Display a UIActivityViewController
+#pragma mark - Present a UIActivityViewController
 
-+ (void)displayActivityViewController
++ (void)showActivityViewController
 {
 		
 		NSString *shareString = [NSString stringWithFormat:@"I think you'd like to check out %@ on the App Store. You can download it at %@.", kAppName, kAppURL];
@@ -95,7 +101,7 @@
 		{
 				[activityTypes addObject:UIActivityTypePostToWeibo];
 		}
-
+		
 		UIActivityViewController *activityViewController = [[UIActivityViewController alloc] initWithActivityItems:activityData applicationActivities:activityTypes];
 		
 		[activityViewController setCompletionHandler:^(NSString *activityType, BOOL completed){
@@ -104,7 +110,90 @@
 				}
 		}];
 		
-		[[[[UIApplication sharedApplication] keyWindow] rootViewController] presentViewController:activityViewController animated:YES completion:nil];
+		[[self targetViewController] presentViewController:activityViewController animated:YES completion:nil];
 }
 
++ (void)showSupportEmail
+{
+		[self showMailComposerWithSubject:[self _supportSubject] andMessage:[self _supportMessage] andAttachments:[self _supportAttachments]];
+}
+
++ (void)showShareEmail
+{
+		[self showMailComposerWithSubject:[self _shareSubject] andMessage:[self _shareMessage] andAttachments:nil];
+}
+
+#pragma mark - Present an MFMailComposer
+
++ (void)showMailComposerWithSubject:(NSString *)subject andMessage:(NSString *)message andAttachments:(NSDictionary *)attachments
+{
+		if ([MFMailComposeViewController canSendMail])
+		{
+				
+				MFMailComposeViewController *mailComposeViewController = [[MFMailComposeViewController alloc] init];
+				
+				[mailComposeViewController setToRecipients:@[kSupportEmailAddress]];
+				
+				[mailComposeViewController setSubject:subject];
+				
+				[mailComposeViewController setMessageBody:message isHTML:NO];
+				
+				[mailComposeViewController setMailComposeDelegate:[self targetViewController]];
+				
+				for (NSString *attachmentKey in [attachments allKeys]) {
+						
+						NSString *filename = [NSString stringWithFormat:@"%@.txt", attachmentKey];
+						
+						[mailComposeViewController addAttachmentData:attachments[attachmentKey] mimeType:@"text/plain" fileName:filename];
+				}
+				
+				[[self targetViewController] presentViewController:mailComposeViewController animated:YES completion:nil];
+		}
+}
+
+#pragma mark - Share Subject and Message
+
++ (NSString *)_shareSubject
+{
+		return [NSString stringWithFormat:@"Check out %@!", kAppName];
+		
+}
+
++ (NSString *)_shareMessage
+{
+		#warning Unimplemented share method
+		return @"";
+}
+
+#pragma mark - Support Subject and Message
+
++ (NSString *)_supportSubject
+{
+		return [NSString stringWithFormat:@"%@ Support Request", kAppName];
+		
+}
+
++ (NSString *)_supportMessage
+{
+		
+		#warning Unimplemented support method
+		
+		return @"";
+}
+
++ (NSDictionary *)_supportAttachments
+{
+		NSDictionary *attachments = @{@"Device": [AppDataManager deviceData],
+																@"Defaults": [AppDataManager defaultsData],
+																@"Locale": [AppDataManager localeData],
+																@"AppBundle" : [AppDataManager appData]};
+		return attachments;
+}
+
+#pragma mark - Target View Controller
+
++ (UIViewController<MFMailComposeViewControllerDelegate, MFMessageComposeViewControllerDelegate> *)targetViewController
+{
+		return [[[UIApplication sharedApplication] keyWindow] rootViewController];
+}
 @end

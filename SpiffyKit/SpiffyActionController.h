@@ -26,4 +26,13 @@
 + (BOOL)canUseAtLeastOneSocialService;	//	True if one or more of the three above is true
 + (BOOL)canShare;												//	True if one of social or messaging services are enabled.
 
+#pragma mark - Display a UIActivityViewController
+
++ (void)displayActivityViewController;
+
+#pragma mark - Show Mail Composers
+
++ (void)showShareEmail;
++ (void)showSupportEmail;
+
 @end
