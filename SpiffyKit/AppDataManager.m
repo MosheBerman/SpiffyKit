@@ -80,10 +80,43 @@
 		return data;
 }
 
++ (NSData *)appDataAsSingleFile
+{
+		NSData *device = [self deviceData];
+		NSData *defaults = [self defaultsData];
+		NSData *localeData = [self localeData];
+		NSData *appData = [self appData];
+		
+		NSMutableData *composite = [[NSMutableData alloc] init];
+		
+		[composite appendBytes:[device bytes] length:[device length]];
+		[composite appendBytes:[defaults bytes] length:[defaults length]];
+		[composite appendBytes:[localeData bytes] length:[localeData length]];
+		[composite appendBytes:[appData bytes] length:[appData length]];
+		
+		return composite;
+}
+
+#pragma mark - App Icon Name
+
++ (NSString *)appIconName
+{
+		
+		NSString *imageName = [[NSBundle mainBundle] infoDictionary][@"CFBundleIconFiles"][0];
+		
+		if(!imageName)
+		{
+				imageName = [[NSBundle mainBundle] infoDictionary][@"CFBundleIcons"][@"CFBundlePrimaryIcon"][@"CFBundleIconFiles"][0];
+		}
+		
+		return imageName;
+}
+
+#pragma mark - App Name
+
 + (NSString *)appName
 {
 		return [[NSBundle mainBundle] infoDictionary][@"CFBundleName"];
 }
-
 
 @end

@@ -15,6 +15,9 @@
 + (NSData *)defaultsData;
 + (NSData *)localeData;
 + (NSData *)appData;
++ (NSData *)appDataAsSingleFile;		//	All 4 of the above
+
++ (NSString *)appIconName;
 
 + (NSString *)appName;
 
