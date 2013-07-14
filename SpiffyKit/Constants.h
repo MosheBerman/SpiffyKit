@@ -13,6 +13,8 @@
 
 #define kAppName @""
 
+#define kAppURL @""
+
 #define kSupportEmailAddress @"yetanotheriphoneapp@gmail.com"
 
 #define kWebsiteURL @"http://mosheberman.com"
