@@ -87,12 +87,21 @@
 		NSData *localeData = [self localeData];
 		NSData *appData = [self appData];
 		
+		NSString *newlines = @"\n\n";
+		
 		NSMutableData *composite = [[NSMutableData alloc] init];
 		
 		[composite appendBytes:[device bytes] length:[device length]];
+		[composite appendBytes:[newlines UTF8String] length:[newlines length]];
+		
 		[composite appendBytes:[defaults bytes] length:[defaults length]];
+		[composite appendBytes:[newlines UTF8String] length:[newlines length]];
+		
 		[composite appendBytes:[localeData bytes] length:[localeData length]];
+		[composite appendBytes:[newlines UTF8String] length:[newlines length]];
+		
 		[composite appendBytes:[appData bytes] length:[appData length]];
+		[composite appendBytes:[newlines UTF8String] length:[newlines length]];
 		
 		return composite;
 }
