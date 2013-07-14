@@ -225,10 +225,19 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-		if (0 == section) {
-				return [[self headerView] frame].size.height;
+		
+		CGFloat height = 0;
+		if (0 == section)
+		{
+						NSString *imageName = [[NSBundle mainBundle] infoDictionary][@"CFBundleIconFiles"][0];
+				
+				if (imageName) {
+						
+						height = [[self headerView] frame].size.height;
+				}
 		}
-		return 0;
+		
+		return height;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
