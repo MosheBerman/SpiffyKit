@@ -8,17 +8,15 @@
 
 #import "SpiffyInternalViewController.h"
 
+#import "Constants.h"
+#import "AppDataManager.h"
 #import "SpiffyActionController.h"
 
-#import <MessageUI/MessageUI.h>
-
-#import "Constants.h"
-
 #import "SpiffyTableViewCell.h"
-
-#import "AppDataManager.h"
+#import "SpiffySwitchCell.h"
 
 #import <QuartzCore/QuartzCore.h>
+#import <MessageUI/MessageUI.h>
 
 @interface SpiffyInternalViewController () <MFMessageComposeViewControllerDelegate, MFMailComposeViewControllerDelegate>
 
@@ -66,7 +64,10 @@
 																						 NSLocalizedString(@"Review", @"A label for a button which allows users to review the app on the store."),
 																						 NSLocalizedString(@"More Apps", @"A label for a button which shows more apps from the same developer.")];
 		
-		NSArray *localizedLabelsForSectionOne = @[NSLocalizedString(@"Say Hello", @"A button which allows the user to contact the developer via email.")];
+		NSArray *localizedLabelsForSectionOne = @[NSLocalizedString(@"Say Hello", @"A button which allows the user to contact the developer via email."),
+																						NSLocalizedString(@"Send Diagnostics", @"A button which allows the user to toggle diagnostics."),
+																						NSLocalizedString(@"Analytics", @"A button which allows the user to toggle analytics.")
+																						];
 		
 		NSArray *localizedLabels = @[localizedLabelsForSectionZero, localizedLabelsForSectionOne];
 		
@@ -74,6 +75,8 @@
 		
 		//	Table Cell
 		[[self tableView] registerClass:[SpiffyTableViewCell class] forCellReuseIdentifier:@"Cell"];
+		[[self tableView] registerClass:[SpiffySwitchCell class] forCellReuseIdentifier:@"SwitchCell"];
+	
 		
 		//	Table Font
 		[self setFont:[UIFont fontWithName:@"AvenirNext-Medium" size:16.0f]];
@@ -139,20 +142,31 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
-    SpiffyTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    UITableViewCell *cell;
     
-    // Configure the cell...
+				NSString *text = [self labels][[indexPath section]][[indexPath row]];
 		
-		NSString *text = [self labels][[indexPath section]][[indexPath row]];
-		
-		[[cell textLabel] setText:text];
-		[[cell textLabel] setTextColor:kCellColor];
-		[[cell textLabel] setFont:[self font]];
-		[cell setSelectionStyle:UITableViewCellSelectionStyleNone];
-
-		
-		[cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
-
+		if (1 == [indexPath section] && 0 != [indexPath row])
+		{
+				SpiffySwitchCell *switchCell = [tableView dequeueReusableCellWithIdentifier:@"SwitchCell" forIndexPath:indexPath];
+				
+				[[switchCell switchLabel] setText:text];
+				
+				cell = switchCell;
+		}
+		else
+		{
+				SpiffyTableViewCell *spiffyCell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+				// Configure the cell...
+				
+				[[spiffyCell textLabel] setText:text];
+				[[spiffyCell textLabel] setTextColor:kCellColor];
+				[[spiffyCell textLabel] setFont:[self font]];
+				[spiffyCell setSelectionStyle:UITableViewCellSelectionStyleNone];
+				
+				[spiffyCell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
+				cell = spiffyCell;
+		}
     return cell;
 }
 
@@ -200,9 +214,20 @@
 		}
 		else if (1 == [indexPath section])
 		{
-				MFMailComposeViewController *composer = (MFMailComposeViewController *)[SpiffyActionController supportEmailComposer];
-				[composer setMailComposeDelegate:self];
-				[self presentViewController:composer animated:YES completion:nil];
+				if(0 == indexPath.row)
+				{
+						MFMailComposeViewController *composer = (MFMailComposeViewController *)[SpiffyActionController supportEmailComposer];
+						[composer setMailComposeDelegate:self];
+						[self presentViewController:composer animated:YES completion:nil];
+				}
+				else if (1 == indexPath.row)
+				{
+						
+				}
+				else if (2 == indexPath.row)
+				{
+						
+				}
 		}
 }
 
