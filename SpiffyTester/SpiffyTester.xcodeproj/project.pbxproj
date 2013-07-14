@@ -24,6 +24,9 @@
 		465E38BC17926ACE0007346D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 465E389417926ACD0007346D /* Foundation.framework */; };
 		465E38C417926ACE0007346D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 465E38C217926ACE0007346D /* InfoPlist.strings */; };
 		465E38C717926ACE0007346D /* SpiffyTesterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 465E38C617926ACE0007346D /* SpiffyTesterTests.m */; };
+		46A23FC017927AA200F58FCF /* libSpiffyKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 46A23FBB17927A9800F58FCF /* libSpiffyKit.a */; };
+		46A23FC217927ABB00F58FCF /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46A23FC117927ABB00F58FCF /* MessageUI.framework */; };
+		46A23FC417927AC000F58FCF /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46A23FC317927AC000F58FCF /* Social.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,6 +36,27 @@
 			proxyType = 1;
 			remoteGlobalIDString = 465E388E17926ACD0007346D;
 			remoteInfo = SpiffyTester;
+		};
+		46A23FBA17927A9800F58FCF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 46A23FB517927A9800F58FCF /* SpiffyKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 463A4FCF178EF78100B29C30;
+			remoteInfo = SpiffyKit;
+		};
+		46A23FBC17927A9800F58FCF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 46A23FB517927A9800F58FCF /* SpiffyKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 463A4FE0178EF78100B29C30;
+			remoteInfo = SpiffyKitTests;
+		};
+		46A23FBE17927A9F00F58FCF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 46A23FB517927A9800F58FCF /* SpiffyKit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 463A4FCE178EF78100B29C30;
+			remoteInfo = SpiffyKit;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -60,6 +84,9 @@
 		465E38C317926ACE0007346D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		465E38C517926ACE0007346D /* SpiffyTesterTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SpiffyTesterTests.h; sourceTree = "<group>"; };
 		465E38C617926ACE0007346D /* SpiffyTesterTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SpiffyTesterTests.m; sourceTree = "<group>"; };
+		46A23FB517927A9800F58FCF /* SpiffyKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SpiffyKit.xcodeproj; path = ../SpiffyKit.xcodeproj; sourceTree = "<group>"; };
+		46A23FC117927ABB00F58FCF /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		46A23FC317927AC000F58FCF /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +94,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				46A23FC417927AC000F58FCF /* Social.framework in Frameworks */,
+				46A23FC217927ABB00F58FCF /* MessageUI.framework in Frameworks */,
+				46A23FC017927AA200F58FCF /* libSpiffyKit.a in Frameworks */,
 				465E389317926ACD0007346D /* UIKit.framework in Frameworks */,
 				465E389517926ACD0007346D /* Foundation.framework in Frameworks */,
 				465E389717926ACD0007346D /* CoreGraphics.framework in Frameworks */,
@@ -108,6 +138,9 @@
 		465E389117926ACD0007346D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				46A23FC317927AC000F58FCF /* Social.framework */,
+				46A23FC117927ABB00F58FCF /* MessageUI.framework */,
+				46A23FB517927A9800F58FCF /* SpiffyKit.xcodeproj */,
 				465E389217926ACD0007346D /* UIKit.framework */,
 				465E389417926ACD0007346D /* Foundation.framework */,
 				465E389617926ACD0007346D /* CoreGraphics.framework */,
@@ -163,6 +196,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		46A23FB617927A9800F58FCF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				46A23FBB17927A9800F58FCF /* libSpiffyKit.a */,
+				46A23FBD17927A9800F58FCF /* SpiffyKitTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -177,6 +219,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				46A23FBF17927A9F00F58FCF /* PBXTargetDependency */,
 			);
 			name = SpiffyTester;
 			productName = SpiffyTester;
@@ -222,6 +265,12 @@
 			mainGroup = 465E388617926ACD0007346D;
 			productRefGroup = 465E389017926ACD0007346D /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 46A23FB617927A9800F58FCF /* Products */;
+					ProjectRef = 46A23FB517927A9800F58FCF /* SpiffyKit.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				465E388E17926ACD0007346D /* SpiffyTester */,
@@ -229,6 +278,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		46A23FBB17927A9800F58FCF /* libSpiffyKit.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libSpiffyKit.a;
+			remoteRef = 46A23FBA17927A9800F58FCF /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		46A23FBD17927A9800F58FCF /* SpiffyKitTests.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = SpiffyKitTests.octest;
+			remoteRef = 46A23FBC17927A9800F58FCF /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		465E388D17926ACD0007346D /* Resources */ = {
@@ -296,6 +362,11 @@
 			isa = PBXTargetDependency;
 			target = 465E388E17926ACD0007346D /* SpiffyTester */;
 			targetProxy = 465E38BD17926ACE0007346D /* PBXContainerItemProxy */;
+		};
+		46A23FBF17927A9F00F58FCF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SpiffyKit;
+			targetProxy = 46A23FBE17927A9F00F58FCF /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -399,6 +470,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SpiffyTester/SpiffyTester-Prefix.pch";
 				INFOPLIST_FILE = "SpiffyTester/SpiffyTester-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -410,6 +485,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SpiffyTester/SpiffyTester-Prefix.pch";
 				INFOPLIST_FILE = "SpiffyTester/SpiffyTester-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -468,6 +547,7 @@
 				465E38CC17926ACE0007346D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		465E38CD17926ACE0007346D /* Build configuration list for PBXNativeTarget "SpiffyTesterTests" */ = {
 			isa = XCConfigurationList;
@@ -476,6 +556,7 @@
 				465E38CF17926ACE0007346D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
