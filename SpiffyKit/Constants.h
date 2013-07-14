@@ -23,4 +23,6 @@
 
 #define kTwitterHandle @"@bermaniastudios"
 
+#define kAppColor [UIColor orangeColor]
+
 #endif
