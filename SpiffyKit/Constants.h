@@ -19,7 +19,7 @@
 
 #define kMoreAppsURL @"http://appstore.com/mosheberman"
 
-#define kTwitterHandle @"@bermaniastudios"
+#define kTwitterHandle @"bermaniastudios"
 
 //#define kAppColor [UIColor colorWithRed:0.2 green:0.6 blue:0.2 alpha:1.0]
 #define kAppColor [UIColor orangeColor]
