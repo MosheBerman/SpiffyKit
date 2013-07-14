@@ -18,6 +18,8 @@
 
 @property (nonatomic, strong) NSArray *labels;
 
+@property (nonatomic, strong) UIFont *font;
+
 @end
 
 @implementation SpiffyViewController
@@ -65,6 +67,7 @@
 		
 		[[self tableView] registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
 		
+		[self setFont:[UIFont fontWithName:@"AvenirNext-Condensed" size:16.0f]];
 }
 
 - (void)didReceiveMemoryWarning
@@ -97,9 +100,10 @@
     // Configure the cell...
 		
 		NSString *text = [self labels][[indexPath section]][[indexPath row]];
-		[[cell textLabel] setText:text];
 		
-		[[cell textLabel] setTextColor:[UIColor orangeColor]];
+		[[cell textLabel] setText:text];
+		[[cell textLabel] setTextColor:kAppColor];
+		[[cell textLabel] setFont:[self font]];
 		
 		[cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
     
