@@ -22,7 +22,7 @@
 
 #pragma mark - Singleton
 
-- (id)sharedController
+- (SpiffyActionController *)sharedController
 {
 		
 		SpiffyActionController *actionController = nil;

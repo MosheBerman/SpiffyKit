@@ -17,7 +17,7 @@
 
 @property (nonatomic, strong) UIViewController<MFMailComposeViewControllerDelegate, MFMessageComposeViewControllerDelegate> *targetViewController;
 
-- (id)sharedController;
+- (SpiffyActionController *)sharedController;
 
 #pragma mark - Messaging Availability Checks
 
