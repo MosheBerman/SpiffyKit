@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4639EC7817925B570043B19C /* SpiffyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4639EC7717925B570043B19C /* SpiffyViewController.m */; };
 		463A4FD3178EF78100B29C30 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 463A4FD2178EF78100B29C30 /* Foundation.framework */; };
 		463A4FD8178EF78100B29C30 /* SpiffyKit.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 463A4FD7178EF78100B29C30 /* SpiffyKit.h */; };
 		463A4FE2178EF78200B29C30 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 463A4FE1178EF78100B29C30 /* SenTestingKit.framework */; };
@@ -17,10 +16,11 @@
 		463A4FF1178EF78200B29C30 /* SpiffyKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 463A4FF0178EF78200B29C30 /* SpiffyKitTests.m */; };
 		465E3885179263740007346D /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 465E3884179263740007346D /* MessageUI.framework */; };
 		465E38DE179274300007346D /* AppDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 465E38DD179274300007346D /* AppDataManager.m */; };
-		466D72C517929018002CB158 /* SpiffyAboutViewController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 46A23FCD17928F3E00F58FCF /* SpiffyAboutViewController.h */; };
+		466D72C517929018002CB158 /* SpiffyViewController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 46A23FCD17928F3E00F58FCF /* SpiffyViewController.h */; };
 		466D72C817929344002CB158 /* SpiffyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 466D72C717929344002CB158 /* SpiffyTableViewCell.m */; };
-		46A23FB417927A3A00F58FCF /* SpiffyViewController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4639EC7617925B570043B19C /* SpiffyViewController.h */; };
-		46A23FCF17928F3E00F58FCF /* SpiffyAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46A23FCE17928F3E00F58FCF /* SpiffyAboutViewController.m */; };
+		46962CFD1792FA6D00DA4743 /* SpiffyInternalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46962CFC1792FA6D00DA4743 /* SpiffyInternalViewController.m */; };
+		46962CFE1792FA6D00DA4743 /* SpiffyInternalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46962CFC1792FA6D00DA4743 /* SpiffyInternalViewController.m */; };
+		46A23FCF17928F3E00F58FCF /* SpiffyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46A23FCE17928F3E00F58FCF /* SpiffyViewController.m */; };
 		46DB00FF1792613400F92209 /* SpiffyActionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46DB00FE1792613400F92209 /* SpiffyActionController.m */; };
 		46DB01001792613400F92209 /* SpiffyActionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46DB00FE1792613400F92209 /* SpiffyActionController.m */; };
 		46DB01051792625D00F92209 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46DB01031792625100F92209 /* UIKit.framework */; };
@@ -44,8 +44,7 @@
 			dstPath = "include/${PRODUCT_NAME}";
 			dstSubfolderSpec = 16;
 			files = (
-				466D72C517929018002CB158 /* SpiffyAboutViewController.h in CopyFiles */,
-				46A23FB417927A3A00F58FCF /* SpiffyViewController.h in CopyFiles */,
+				466D72C517929018002CB158 /* SpiffyViewController.h in CopyFiles */,
 				463A4FD8178EF78100B29C30 /* SpiffyKit.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -53,8 +52,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		4639EC7617925B570043B19C /* SpiffyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpiffyViewController.h; sourceTree = "<group>"; };
-		4639EC7717925B570043B19C /* SpiffyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpiffyViewController.m; sourceTree = "<group>"; };
 		4639EC7917925B6F0043B19C /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		463A4FCF178EF78100B29C30 /* libSpiffyKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSpiffyKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		463A4FD2178EF78100B29C30 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -71,8 +68,10 @@
 		465E38DD179274300007346D /* AppDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDataManager.m; sourceTree = "<group>"; };
 		466D72C617929344002CB158 /* SpiffyTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpiffyTableViewCell.h; sourceTree = "<group>"; };
 		466D72C717929344002CB158 /* SpiffyTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpiffyTableViewCell.m; sourceTree = "<group>"; };
-		46A23FCD17928F3E00F58FCF /* SpiffyAboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpiffyAboutViewController.h; sourceTree = "<group>"; };
-		46A23FCE17928F3E00F58FCF /* SpiffyAboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpiffyAboutViewController.m; sourceTree = "<group>"; };
+		46962CFB1792FA6D00DA4743 /* SpiffyInternalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpiffyInternalViewController.h; sourceTree = "<group>"; };
+		46962CFC1792FA6D00DA4743 /* SpiffyInternalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpiffyInternalViewController.m; sourceTree = "<group>"; };
+		46A23FCD17928F3E00F58FCF /* SpiffyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpiffyViewController.h; sourceTree = "<group>"; };
+		46A23FCE17928F3E00F58FCF /* SpiffyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpiffyViewController.m; sourceTree = "<group>"; };
 		46DB00FD1792613400F92209 /* SpiffyActionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpiffyActionController.h; sourceTree = "<group>"; };
 		46DB00FE1792613400F92209 /* SpiffyActionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpiffyActionController.m; sourceTree = "<group>"; };
 		46DB01031792625100F92209 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -177,10 +176,10 @@
 		46DB01011792613F00F92209 /* View Controller */ = {
 			isa = PBXGroup;
 			children = (
-				4639EC7617925B570043B19C /* SpiffyViewController.h */,
-				4639EC7717925B570043B19C /* SpiffyViewController.m */,
-				46A23FCD17928F3E00F58FCF /* SpiffyAboutViewController.h */,
-				46A23FCE17928F3E00F58FCF /* SpiffyAboutViewController.m */,
+				46962CFB1792FA6D00DA4743 /* SpiffyInternalViewController.h */,
+				46962CFC1792FA6D00DA4743 /* SpiffyInternalViewController.m */,
+				46A23FCD17928F3E00F58FCF /* SpiffyViewController.h */,
+				46A23FCE17928F3E00F58FCF /* SpiffyViewController.m */,
 				466D72C617929344002CB158 /* SpiffyTableViewCell.h */,
 				466D72C717929344002CB158 /* SpiffyTableViewCell.m */,
 			);
@@ -296,11 +295,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4639EC7817925B570043B19C /* SpiffyViewController.m in Sources */,
 				46DB00FF1792613400F92209 /* SpiffyActionController.m in Sources */,
 				465E38DE179274300007346D /* AppDataManager.m in Sources */,
-				46A23FCF17928F3E00F58FCF /* SpiffyAboutViewController.m in Sources */,
+				46A23FCF17928F3E00F58FCF /* SpiffyViewController.m in Sources */,
 				466D72C817929344002CB158 /* SpiffyTableViewCell.m in Sources */,
+				46962CFD1792FA6D00DA4743 /* SpiffyInternalViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -310,6 +309,7 @@
 			files = (
 				463A4FF1178EF78200B29C30 /* SpiffyKitTests.m in Sources */,
 				46DB01001792613400F92209 /* SpiffyActionController.m in Sources */,
+				46962CFE1792FA6D00DA4743 /* SpiffyInternalViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

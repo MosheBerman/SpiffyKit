@@ -8,4 +8,4 @@
 
 #import <Foundation/Foundation.h>
 
-#import "SpiffyAboutViewController.h"
+#import "SpiffyViewController.h"

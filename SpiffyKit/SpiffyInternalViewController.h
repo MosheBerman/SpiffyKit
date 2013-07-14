@@ -1,5 +1,5 @@
 //
-//  SpiffyAboutViewController.h
+//  SpiffyViewController.h
 //  SpiffyKit
 //
 //  Created by Moshe Berman on 7/14/13.
@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SpiffyViewController : UINavigationController
+@interface SpiffyInternalViewController : UITableViewController
+
++ (SpiffyInternalViewController *)sharedController;
 
 @end
