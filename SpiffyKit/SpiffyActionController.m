@@ -85,8 +85,34 @@
 		
 		[activityViewController setCompletionHandler:nil];
 
+		if (![self canSendEmail]) {
+				[self _addExclusionType:UIActivityTypeMail toActivityViewController:activityViewController];
+		}
+		if (![self canSendText])
+		{
+				[self _addExclusionType:UIActivityTypeMessage toActivityViewController:activityViewController];
+		}
+		if(![self canUseFacebook])
+		{
+				[self _addExclusionType:UIActivityTypePostToFacebook toActivityViewController:activityViewController];
+		}
+		if(![self canUseTwitter])
+		{
+				[self _addExclusionType:UIActivityTypePostToTwitter toActivityViewController:activityViewController];
+		}
+		if (![self canUseSinaWeibo])
+		{
+				[self _addExclusionType:UIActivityTypePostToWeibo toActivityViewController:activityViewController];
+		}
+		
 		return activityViewController;
 		
+}
+
++ (void)_addExclusionType:(NSString *)type toActivityViewController:(UIActivityViewController *)activityViewController
+{
+		NSArray *excludedTypes = [@[type] arrayByAddingObjectsFromArray:activityViewController.excludedActivityTypes];
+		activityViewController.excludedActivityTypes = excludedTypes;
 }
 
 + (MFMailComposeViewController *)supportEmailComposer
