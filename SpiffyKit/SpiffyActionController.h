@@ -13,8 +13,6 @@
 
 @interface SpiffyActionController : NSObject
 
-
-
 #pragma mark - Messaging Availability Checks
 
 + (BOOL)canSendEmail;

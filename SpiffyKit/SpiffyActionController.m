@@ -172,7 +172,7 @@
 
 + (NSString *)_supportSubject
 {
-		return [NSString stringWithFormat:@"%@ Support Request", [AppDataManager appName]];
+		return [NSString stringWithFormat:@"%@ Feedback", [AppDataManager appName]];
 		
 }
 
@@ -183,10 +183,7 @@
 
 + (NSDictionary *)_supportAttachments
 {
-		NSDictionary *attachments = @{@"Device": [AppDataManager deviceData],
-																@"Defaults": [AppDataManager defaultsData],
-																@"Locale": [AppDataManager localeData],
-																@"AppBundle" : [AppDataManager appData]};
+		NSDictionary *attachments = @{@"Diagnostic": [AppDataManager appDataAsSingleFile]};
 		return attachments;
 }
 
