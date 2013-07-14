@@ -6,9 +6,14 @@
 //  Copyright (c) 2013 Moshe Berman. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
+
+@protocol MFMailComposeViewControllerDelegate;
+@protocol MFMessageComposeViewControllerDelegate;
 
 @interface SpiffyActionController : NSObject
+
+@property (nonatomic, strong) UIViewController<MFMailComposeViewControllerDelegate, MFMessageComposeViewControllerDelegate> *targetViewController;
 
 #pragma mark - Messaging Availability Checks
 
@@ -28,7 +33,7 @@
 
 #pragma mark - Display a UIActivityViewController
 
-+ (void)displayActivityViewController;
++ (void)showActivityViewController;
 
 #pragma mark - Show Mail Composers
 

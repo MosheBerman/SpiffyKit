@@ -20,6 +20,21 @@
 
 @implementation SpiffyActionController
 
+#pragma mark - Singelton
+
+- (id)sharedController
+{
+		
+		SpiffyActionController *actionController = nil;
+		
+		static dispatch_once_t onceToken;
+		dispatch_once(&onceToken, ^{
+				actionController = [[SpiffyActionController alloc] init];
+		});
+		
+		return actionController;
+}
+
 #pragma mark - Messaging Availability Checks
 
 + (BOOL)canSendEmail
@@ -190,10 +205,4 @@
 		return attachments;
 }
 
-#pragma mark - Target View Controller
-
-+ (UIViewController<MFMailComposeViewControllerDelegate, MFMessageComposeViewControllerDelegate> *)targetViewController
-{
-		return [[[UIApplication sharedApplication] keyWindow] rootViewController];
-}
 @end
