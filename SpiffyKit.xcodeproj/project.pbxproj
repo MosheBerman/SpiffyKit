@@ -18,6 +18,7 @@
 		465E3885179263740007346D /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 465E3884179263740007346D /* MessageUI.framework */; };
 		465E38DE179274300007346D /* AppDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 465E38DD179274300007346D /* AppDataManager.m */; };
 		46A23FB417927A3A00F58FCF /* SpiffyViewController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4639EC7617925B570043B19C /* SpiffyViewController.h */; };
+		46A23FCF17928F3E00F58FCF /* SpiffyAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46A23FCE17928F3E00F58FCF /* SpiffyAboutViewController.m */; };
 		46DB00FF1792613400F92209 /* SpiffyActionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46DB00FE1792613400F92209 /* SpiffyActionController.m */; };
 		46DB01001792613400F92209 /* SpiffyActionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46DB00FE1792613400F92209 /* SpiffyActionController.m */; };
 		46DB01051792625D00F92209 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46DB01031792625100F92209 /* UIKit.framework */; };
@@ -65,6 +66,8 @@
 		465E3884179263740007346D /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		465E38DC179274300007346D /* AppDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDataManager.h; sourceTree = "<group>"; };
 		465E38DD179274300007346D /* AppDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDataManager.m; sourceTree = "<group>"; };
+		46A23FCD17928F3E00F58FCF /* SpiffyAboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpiffyAboutViewController.h; sourceTree = "<group>"; };
+		46A23FCE17928F3E00F58FCF /* SpiffyAboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpiffyAboutViewController.m; sourceTree = "<group>"; };
 		46DB00FD1792613400F92209 /* SpiffyActionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpiffyActionController.h; sourceTree = "<group>"; };
 		46DB00FE1792613400F92209 /* SpiffyActionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpiffyActionController.m; sourceTree = "<group>"; };
 		46DB01031792625100F92209 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -171,6 +174,8 @@
 			children = (
 				4639EC7617925B570043B19C /* SpiffyViewController.h */,
 				4639EC7717925B570043B19C /* SpiffyViewController.m */,
+				46A23FCD17928F3E00F58FCF /* SpiffyAboutViewController.h */,
+				46A23FCE17928F3E00F58FCF /* SpiffyAboutViewController.m */,
 			);
 			name = "View Controller";
 			sourceTree = "<group>";
@@ -287,6 +292,7 @@
 				4639EC7817925B570043B19C /* SpiffyViewController.m in Sources */,
 				46DB00FF1792613400F92209 /* SpiffyActionController.m in Sources */,
 				465E38DE179274300007346D /* AppDataManager.m in Sources */,
+				46A23FCF17928F3E00F58FCF /* SpiffyAboutViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
