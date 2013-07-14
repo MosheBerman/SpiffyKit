@@ -20,7 +20,7 @@
 
 @implementation SpiffyActionController
 
-#pragma mark - Singelton
+#pragma mark - Singleton
 
 - (id)sharedController
 {

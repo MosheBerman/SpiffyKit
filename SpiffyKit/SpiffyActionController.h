@@ -13,7 +13,11 @@
 
 @interface SpiffyActionController : NSObject
 
+#pragma mark - Singleton
+
 @property (nonatomic, strong) UIViewController<MFMailComposeViewControllerDelegate, MFMessageComposeViewControllerDelegate> *targetViewController;
+
+- (id)sharedController;
 
 #pragma mark - Messaging Availability Checks
 
