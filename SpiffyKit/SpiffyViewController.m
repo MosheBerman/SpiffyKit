@@ -41,8 +41,9 @@
 - (id)init
 {
     self = [super initWithStyle:UITableViewStyleGrouped];
-    if (self) {
-
+    if (self) {F
+				// Transition
+				[self setModalTransitionStyle: UIModalTransitionStyleFlipHorizontal];
     }
     return self;
 }
@@ -75,9 +76,6 @@
 		//	Done Button
 		UIBarButtonItem *done = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(dismiss)];
 		[[self navigationItem] setLeftBarButtonItem:done animated:NO];
-		
-		// Transition
-		[self setModalTransitionStyle: UIModalTransitionStyleFlipHorizontal];
 		
 		//	Title
 		
