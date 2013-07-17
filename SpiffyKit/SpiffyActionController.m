@@ -144,11 +144,14 @@
 				
 				[mailComposeViewController setMessageBody:message isHTML:NO];
 				
-				for (NSString *attachmentKey in [attachments allKeys]) {
-						
-						NSString *filename = [NSString stringWithFormat:@"%@.txt", attachmentKey];
-						
-						[mailComposeViewController addAttachmentData:attachments[attachmentKey] mimeType:@"text/plain" fileName:filename];
+				if([[SpiffyController sharedController] diagnosticsEnabled])
+				{
+						for (NSString *attachmentKey in [attachments allKeys]) {
+								
+								NSString *filename = [NSString stringWithFormat:@"%@.txt", attachmentKey];
+								
+								[mailComposeViewController addAttachmentData:attachments[attachmentKey] mimeType:@"text/plain" fileName:filename];
+						}
 				}
 		}
 				return mailComposeViewController;		
