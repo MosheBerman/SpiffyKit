@@ -243,8 +243,17 @@
 				if(0 == indexPath.row)
 				{
 						MFMailComposeViewController *composer = (MFMailComposeViewController *)[SpiffyActionController supportEmailComposer];
-						[composer setMailComposeDelegate:self];
-						[self presentViewController:composer animated:YES completion:nil];
+						if(composer)
+						{
+								[composer setMailComposeDelegate:self];
+								[self presentViewController:composer animated:YES completion:nil];
+						}
+						else
+						{
+								NSString *title = NSLocalizedString(@"No Email Support", @"A title for alerts that are related to email.");
+								NSString *message = NSLocalizedString(@"It looks like email isn't set up on this device.", @"A message for when email isn't set up.");
+								[self alertWithTitle:title andMessage:message];
+						}
 				}
 				else if (1 == indexPath.row)
 				{
@@ -285,11 +294,16 @@
 		{
 				NSString *title = NSLocalizedString(@"Invalid Address", @"A title for an alert explaining that a given URL is unavaialable");
 				NSString *message = NSLocalizedString(@"This app is trying to open a web address that your %@ doesn't know how to handle.", @"A message for when sharing is disabled.");
-				NSString *messageFormat = [NSString stringWithFormat:message, [[UIDevice currentDevice] localizedModel]];
-				NSString *cancelButtonTitle = NSLocalizedString(@"Dismiss", @"A title to dismiss an error message.");
-				UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title message:messageFormat delegate:nil cancelButtonTitle:cancelButtonTitle otherButtonTitles: nil];
-				[alert show];
+				[self alertWithTitle:title andMessage:message];
 		}
+}
+
+- (void)alertWithTitle:(NSString *)title andMessage:(NSString *)message
+{
+		NSString *messageFormat = [NSString stringWithFormat:message, [[UIDevice currentDevice] localizedModel]];
+		NSString *cancelButtonTitle = NSLocalizedString(@"Dismiss", @"A title to dismiss an error message.");
+		UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title message:messageFormat delegate:nil cancelButtonTitle:cancelButtonTitle otherButtonTitles: nil];
+		[alert show];
 }
 
 #pragma mark - Table Header
