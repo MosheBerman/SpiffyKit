@@ -10,6 +10,8 @@
 
 #import "Constants.h"
 
+#import "AppDataManager.h"
+
 #define kLabelLeftOffset 20.0f
 
 @implementation SpiffySwitchCell
@@ -61,7 +63,7 @@
 		[self addSubview:[self toggle]];
 		
 		[self setBackgroundColor:[UIColor whiteColor]];
-		[[self toggle] setOnTintColor:kAppColor];
+		[[self toggle] setOnTintColor:[AppDataManager appColor]];
 		
 }
 

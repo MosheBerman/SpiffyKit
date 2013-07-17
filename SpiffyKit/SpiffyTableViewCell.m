@@ -10,6 +10,8 @@
 
 #import "Constants.h"
 
+#import "AppDataManager.h"
+
 @implementation SpiffyTableViewCell
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
@@ -32,16 +34,15 @@
 
     // Configure the view for the selected state
 		
-		UIColor *backgroundColor = kAppColor;
+		UIColor *backgroundColor = [AppDataManager appColor];
 		UIColor *textColor = kCellHighlightedColor;
-		NSTimeInterval interval = 1;
 		
 		if (!selected) {
 				backgroundColor = [UIColor whiteColor];
-				textColor = kCellColor;
+				textColor = [UIColor blackColor];
 		}
 				
-		[UIView animateWithDuration:interval animations:^{
+		[UIView animateWithDuration:0.3 animations:^{
 				[self setBackgroundColor:backgroundColor];
 				[[self textLabel] setTextColor:textColor];
 		}];
@@ -58,16 +59,15 @@
 		
     // Configure the view for the selected state
 		
-		UIColor *backgroundColor = kAppColor;
+		UIColor *backgroundColor = [AppDataManager appColor];
 		UIColor *textColor = kCellHighlightedColor;
-		NSTimeInterval interval = 1;
 		
 		if (!highlighted) {
 				backgroundColor = [UIColor whiteColor];
-				textColor = kCellColor;
+				textColor = [UIColor blackColor];
 		}
 		
-		[UIView animateWithDuration:interval animations:^{
+		[UIView animateWithDuration:0.3 animations:^{
 				[self setBackgroundColor:backgroundColor];
 				[[self textLabel] setTextColor:textColor];
 				

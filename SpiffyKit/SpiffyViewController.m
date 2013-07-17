@@ -12,6 +12,8 @@
 
 #import "Constants.h"
 
+#import "AppDataManager.h"
+
 @interface SpiffyViewController ()
 
 @property (nonatomic, strong) UIColor *originalColor;
@@ -42,7 +44,7 @@
 		[super viewWillAppear:animated];
 		
 		[self setOriginalColor:[[UINavigationBar appearance] tintColor]];
-		[[UINavigationBar appearance] setTintColor:kAppColor];
+		[[UINavigationBar appearance] setTintColor:[AppDataManager appColor]];
 }
 
 - (void)viewDidDisappear:(BOOL)animated

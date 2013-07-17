@@ -48,9 +48,6 @@
 				// Transition
 				[self setModalTransitionStyle: UIModalTransitionStyleFlipHorizontal];
 				
-				//	Title
-				NSString *name = [AppDataManager appName];
-				[[self navigationItem] setTitle:name];
     }
     return self;
 }
@@ -59,24 +56,39 @@
 {
     [super viewDidLoad];
 		
+		//	Title
+		NSString *name = [AppDataManager appName];
+		
+		[[self navigationItem] setTitle:name];
+		
+		//
+		NSString *localizedTwitterFormat = NSLocalizedString(@"Follow @%@", @"A label for a button which allows users to follow you on Twitter.");
+		NSString *twitterHandle = [kTwitterHandle length] ? [NSString stringWithFormat:localizedTwitterFormat, kTwitterHandle] : nil;
+		
+		
 		//	Table labels
-		NSArray *localizedLabelsForSectionZero = @[NSLocalizedString(@"Share", @"A label which allows users to share apps via social media and email."),
+		NSArray *localizedLabelsForSectionZero = @[NSLocalizedString(@"Tell a Friend", @"A label which allows users to share apps via social media and email."),
 																						 NSLocalizedString(@"Review", @"A label for a button which allows users to review the app on the store."),
 																						 NSLocalizedString(@"More Apps", @"A label for a button which shows more apps from the same developer.")];
 		
-		NSArray *localizedLabelsForSectionOne = @[NSLocalizedString(@"Say Hello", @"A button which allows the user to contact the developer via email."),
-																						NSLocalizedString(@"Send Diagnostics", @"A button which allows the user to toggle diagnostics."),
-																						NSLocalizedString(@"Analytics", @"A button which allows the user to toggle analytics.")
-																						];
+		NSArray *localizedLabelsForSectionOne = @[NSLocalizedString(@"Say Hello", @"A button which allows the user to contact the developer via email.")];
 		
-		NSArray *localizedLabels = @[localizedLabelsForSectionZero, localizedLabelsForSectionOne];
+		
+		NSArray *localizedLabelsForSectionTwo = @[NSLocalizedString(@"Send Diagnostics", @"A button which allows the user to toggle diagnostics."),
+																						NSLocalizedString(@"Analytics", @"A button which allows the user to toggle analytics.")];
+		
+		if (twitterHandle) {
+				localizedLabelsForSectionOne = [localizedLabelsForSectionOne arrayByAddingObject:twitterHandle];
+		}
+		
+		NSArray *localizedLabels = @[localizedLabelsForSectionZero, localizedLabelsForSectionOne, localizedLabelsForSectionTwo];
 		
 		[self setLabels:localizedLabels];
 		
 		//	Table Cell
 		[[self tableView] registerClass:[SpiffyTableViewCell class] forCellReuseIdentifier:@"Cell"];
 		[[self tableView] registerClass:[SpiffySwitchCell class] forCellReuseIdentifier:@"SwitchCell"];
-	
+		
 		
 		//	Table Font
 		[self setFont:[UIFont fontWithName:@"AvenirNext-Medium" size:16.0f]];
@@ -89,7 +101,7 @@
 		NSString *imageName = [AppDataManager appIconName];
 		UIImage *appIcon = [UIImage imageNamed: imageName];
 		UIImageView *appIconView = [[UIImageView alloc] initWithImage:appIcon];
-
+		
 		CGRect bounds = [appIconView bounds];
 		bounds.size = CGSizeMake(57, 57);
 		[appIconView setFrame:bounds];
@@ -144,14 +156,22 @@
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell;
     
-				NSString *text = [self labels][[indexPath section]][[indexPath row]];
+		NSString *text = [self labels][[indexPath section]][[indexPath row]];
 		
-		if (1 == [indexPath section] && 0 != [indexPath row])
+		if (2 == [indexPath section])
 		{
 				SpiffySwitchCell *switchCell = [tableView dequeueReusableCellWithIdentifier:@"SwitchCell" forIndexPath:indexPath];
 				
 				[[switchCell switchLabel] setText:text];
 				
+				if (0 == [indexPath row])
+				{
+						[switchCell.toggle addTarget:self action:@selector(toggleDiagnostics:) forControlEvents:UIControlEventValueChanged];
+				}
+				else if (1 == [indexPath row])
+				{
+						[switchCell.toggle addTarget:self action:@selector(toggleAnalytics:) forControlEvents:UIControlEventValueChanged];
+				}
 				cell = switchCell;
 		}
 		else
@@ -160,14 +180,14 @@
 				// Configure the cell...
 				
 				[[spiffyCell textLabel] setText:text];
-				[[spiffyCell textLabel] setTextColor:kCellColor];
 				[[spiffyCell textLabel] setFont:[self font]];
 				[spiffyCell setSelectionStyle:UITableViewCellSelectionStyleNone];
 				
 				[spiffyCell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
+				
 				cell = spiffyCell;
 		}
-    return cell;
+		return cell;
 }
 
 #pragma mark - Table view delegate
@@ -175,7 +195,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-
+		
 		[tableView deselectRowAtIndexPath:indexPath animated:YES];
 		
 		if (0 == [indexPath section])
@@ -222,7 +242,9 @@
 				}
 				else if (1 == indexPath.row)
 				{
-						
+						NSString *urlFormat = [NSString stringWithFormat:@"http://twitter.com/%@", kTwitterHandle];
+						NSURL *url = [NSURL URLWithString:urlFormat];
+						[self openURL:url];
 				}
 				else if (2 == indexPath.row)
 				{
@@ -255,7 +277,7 @@
 		CGFloat height = 0;
 		if (0 == section)
 		{
-
+				
 				NSString *imageName = [AppDataManager appIconName];
 				
 				if (imageName) {
@@ -295,6 +317,5 @@
 {
 		[[self presentingViewController] dismissViewControllerAnimated:YES completion:nil];
 }
-
 
 @end
