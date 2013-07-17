@@ -7,9 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
-@class UIViewController;
-@class UISwitch;
+#import <UIKit/UIKit.h>
 
 @interface SpiffyController : NSObject
 
@@ -23,7 +21,8 @@
 
 + (SpiffyController *)sharedController;
 
-- (void)presentInViewController:(UIViewController *)viewController;
+//	On iPad, pass a rect for popover. Else, pass CGRectZero.
+- (void)presentInViewController:(UIViewController *)viewController fromRectWhereApplicable:(CGRect)rect;
 
 #pragma mark - Diagnostics
 
