@@ -171,12 +171,12 @@
 				if (0 == [indexPath row])
 				{
 						[switchCell.toggle addTarget:[SpiffyController sharedController] action:@selector(toggleDiagnostics:) forControlEvents:UIControlEventValueChanged];
-						[switchCell.toggle setEnabled:[[SpiffyController sharedController] diagnosticsEnabled]];
+						[switchCell.toggle setOn:[[SpiffyController sharedController] diagnosticsEnabled]];
 				}
 				else if (1 == [indexPath row])
 				{
 						[switchCell.toggle addTarget:[SpiffyController sharedController] action:@selector(toggleAnalytics:) forControlEvents:UIControlEventValueChanged];
-						[switchCell.toggle setEnabled:[[SpiffyController sharedController] analyticsEnabled]];
+						[switchCell.toggle setOn:[[SpiffyController sharedController] analyticsEnabled]];
 				}
 				cell = switchCell;
 		}
@@ -256,6 +256,23 @@
 				{
 						
 				}
+		}
+		else if (2 == [indexPath section])
+		{
+				
+				SpiffySwitchCell *cell = (SpiffySwitchCell *)[tableView cellForRowAtIndexPath:indexPath];
+				[cell.toggle setOn:!cell.toggle.isOn animated:YES];
+				
+				if (0 == [indexPath row])
+				{
+						[[SpiffyController sharedController] toggleDiagnostics:cell.toggle];
+				}
+				else if (1 == [indexPath row])
+				{
+						[[SpiffyController sharedController] toggleAnalytics:cell.toggle];
+				}
+				
+
 		}
 }
 
