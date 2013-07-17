@@ -8,9 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@protocol MFMailComposeViewControllerDelegate;
-@protocol MFMessageComposeViewControllerDelegate;
-
 @interface SpiffyActionController : NSObject
 
 #pragma mark - Messaging Availability Checks
