@@ -108,6 +108,19 @@
 		return composite;
 }
 
+#pragma mark - App Name
+
++ (NSString *)appName
+{
+		return [[NSBundle mainBundle] infoDictionary][@"CFBundleName"];
+}
+
+#pragma mark - App Version
+
++ (NSString *)appVersion
+{
+		return [[NSBundle mainBundle] infoDictionary][@"CFBundleShortVersionString"];
+}
 #pragma mark - App Icon Name
 
 + (NSString *)appIconName
@@ -130,11 +143,6 @@
 		return kAppColor;
 }
 
-#pragma mark - App Name
 
-+ (NSString *)appName
-{
-		return [[NSBundle mainBundle] infoDictionary][@"CFBundleName"];
-}
 
 @end

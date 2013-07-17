@@ -17,10 +17,10 @@
 + (NSData *)appData;
 + (NSData *)appDataAsSingleFile;		//	All 4 of the above
 
-+ (NSString *)appIconName;
-
-+ (UIColor *)appColor;
-
 + (NSString *)appName;
++ (NSString *)appVersion;
+
++ (NSString *)appIconName;
++ (UIColor *)appColor;
 
 @end
