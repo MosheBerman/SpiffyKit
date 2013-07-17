@@ -19,6 +19,7 @@
 
 + (NSString *)appName;
 + (NSString *)appVersion;
++ (NSString *)appBuild;
 
 + (NSString *)appIconName;
 + (UIColor *)appColor;

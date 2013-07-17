@@ -121,6 +121,14 @@
 {
 		return [[NSBundle mainBundle] infoDictionary][@"CFBundleShortVersionString"];
 }
+
+#pragma mark - App Build
+
++ (NSString *)appBuild
+{
+	return [[NSBundle mainBundle] infoDictionary][@"CFBundleVersion"];	
+}
+
 #pragma mark - App Icon Name
 
 + (NSString *)appIconName
