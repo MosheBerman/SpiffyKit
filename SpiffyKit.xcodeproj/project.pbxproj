@@ -16,7 +16,6 @@
 		463A4FF1178EF78200B29C30 /* SpiffyKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 463A4FF0178EF78200B29C30 /* SpiffyKitTests.m */; };
 		465E3885179263740007346D /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 465E3884179263740007346D /* MessageUI.framework */; };
 		465E38DE179274300007346D /* AppDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 465E38DD179274300007346D /* AppDataManager.m */; };
-		466D72C517929018002CB158 /* SpiffyViewController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 46A23FCD17928F3E00F58FCF /* SpiffyViewController.h */; };
 		466D72C817929344002CB158 /* SpiffyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 466D72C717929344002CB158 /* SpiffyTableViewCell.m */; };
 		46962CFD1792FA6D00DA4743 /* SpiffyInternalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46962CFC1792FA6D00DA4743 /* SpiffyInternalViewController.m */; };
 		46962CFE1792FA6D00DA4743 /* SpiffyInternalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46962CFC1792FA6D00DA4743 /* SpiffyInternalViewController.m */; };
@@ -27,6 +26,8 @@
 		46DB01001792613400F92209 /* SpiffyActionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46DB00FE1792613400F92209 /* SpiffyActionController.m */; };
 		46DB01051792625D00F92209 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46DB01031792625100F92209 /* UIKit.framework */; };
 		46DB01071792626500F92209 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46DB01061792626500F92209 /* Social.framework */; };
+		46FE6AA5179645AE00C67A92 /* SpiffyController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46FE6AA4179645AE00C67A92 /* SpiffyController.m */; };
+		46FE6AA7179645C900C67A92 /* SpiffyController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 46FE6AA3179645AE00C67A92 /* SpiffyController.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,7 +47,7 @@
 			dstPath = "include/${PRODUCT_NAME}";
 			dstSubfolderSpec = 16;
 			files = (
-				466D72C517929018002CB158 /* SpiffyViewController.h in CopyFiles */,
+				46FE6AA7179645C900C67A92 /* SpiffyController.h in CopyFiles */,
 				463A4FD8178EF78100B29C30 /* SpiffyKit.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -80,6 +81,8 @@
 		46DB00FE1792613400F92209 /* SpiffyActionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpiffyActionController.m; sourceTree = "<group>"; };
 		46DB01031792625100F92209 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		46DB01061792626500F92209 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		46FE6AA3179645AE00C67A92 /* SpiffyController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SpiffyController.h; path = "Public Controller/SpiffyController.h"; sourceTree = "<group>"; };
+		46FE6AA4179645AE00C67A92 /* SpiffyController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SpiffyController.m; path = "Public Controller/SpiffyController.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +146,7 @@
 			children = (
 				463A4FD7178EF78100B29C30 /* SpiffyKit.h */,
 				4639EC7917925B6F0043B19C /* Constants.h */,
+				46FE6AA6179645B600C67A92 /* Public */,
 				46DB01011792613F00F92209 /* View Controller */,
 				46DB01021792614900F92209 /* Action Controller */,
 				463A4FD5178EF78100B29C30 /* Supporting Files */,
@@ -201,6 +205,15 @@
 				465E38DD179274300007346D /* AppDataManager.m */,
 			);
 			name = "Action Controller";
+			sourceTree = "<group>";
+		};
+		46FE6AA6179645B600C67A92 /* Public */ = {
+			isa = PBXGroup;
+			children = (
+				46FE6AA3179645AE00C67A92 /* SpiffyController.h */,
+				46FE6AA4179645AE00C67A92 /* SpiffyController.m */,
+			);
+			name = Public;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -307,6 +320,7 @@
 				466D72C817929344002CB158 /* SpiffyTableViewCell.m in Sources */,
 				46962CFD1792FA6D00DA4743 /* SpiffyInternalViewController.m in Sources */,
 				46962D011792FFB200DA4743 /* SpiffySwitchCell.m in Sources */,
+				46FE6AA5179645AE00C67A92 /* SpiffyController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -402,7 +416,10 @@
 				DSTROOT = /tmp/SpiffyKit.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SpiffyKit/SpiffyKit-Prefix.pch";
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				USER_HEADER_SEARCH_PATHS = "$(ROOT)";
@@ -415,7 +432,10 @@
 				DSTROOT = /tmp/SpiffyKit.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SpiffyKit/SpiffyKit-Prefix.pch";
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				USER_HEADER_SEARCH_PATHS = "$(ROOT)";

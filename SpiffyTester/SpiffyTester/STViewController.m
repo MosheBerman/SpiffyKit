@@ -31,9 +31,14 @@
 
 - (void)showSpiffyView
 {
-		SpiffyViewController *spiffyViewController = [[SpiffyViewController alloc] init];
+		[[SpiffyController sharedController] setAppStoreIdentifier:@""];
+		[[SpiffyController sharedController] setAppURL:@""];
+		[[SpiffyController sharedController] setWebsiteURL:@"http://mosheberman.com"];
+		[[SpiffyController sharedController] setMoreAppsURL:@"http://appstore.com/mosheberman"];
 		
-		[self presentViewController:spiffyViewController animated:YES completion:nil];
-
+		[[SpiffyController sharedController] setSupportEmailAddress:@"yetanotheriphoneapp@gmail.com"];
+		[[SpiffyController sharedController] setTwitterHandle:@"bermaniastudios"];
+		
+		[[SpiffyController sharedController] presentInViewController:self fromRectWhereApplicable:self.showSpiffyViewButton.frame];
 }
 @end
