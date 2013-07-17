@@ -43,7 +43,7 @@
 
 - (void)toggleDiagnostics:(UISwitch *)sender
 {
-		BOOL enabled = [sender isEnabled];
+		BOOL enabled = [sender isOn];
 		
 		[[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"SpiffyKitDiagnosticsEnabled"];
 }
@@ -58,7 +58,7 @@
 
 - (void)toggleAnalytics:(UISwitch *)sender
 {
-		BOOL enabled = [sender isEnabled];
+		BOOL enabled = [sender isOn];
 		
 		[[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"SpiffyKitAnalyticsEnabled"];
 }
