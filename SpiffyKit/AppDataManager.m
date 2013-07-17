@@ -10,6 +10,8 @@
 
 #import "Constants.h"
 
+#import "SpiffyController.h"
+
 @implementation AppDataManager
 
 
@@ -148,7 +150,7 @@
 
 + (UIColor *)appColor
 {
-		return kAppColor;
+		return [[SpiffyController sharedController] appColor];
 }
 
 
