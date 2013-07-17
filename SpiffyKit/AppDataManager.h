@@ -19,6 +19,8 @@
 
 + (NSString *)appIconName;
 
++ (UIColor *)appColor;
+
 + (NSString *)appName;
 
 @end

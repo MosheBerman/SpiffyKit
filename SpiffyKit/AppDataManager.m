@@ -8,6 +8,8 @@
 
 #import "AppDataManager.h"
 
+#import "Constants.h"
+
 @implementation AppDataManager
 
 
@@ -119,6 +121,13 @@
 		}
 		
 		return imageName;
+}
+
+#pragma mark - App Color
+
++ (UIColor *)appColor
+{
+		return kAppColor;
 }
 
 #pragma mark - App Name
