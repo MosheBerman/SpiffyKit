@@ -288,27 +288,6 @@
 		}
 }
 
-- (void)openURL:(NSURL *)url
-{
-		if ([[UIApplication sharedApplication] canOpenURL:url]) {
-				[[UIApplication sharedApplication] openURL:url];
-		}
-		else
-		{
-				NSString *title = NSLocalizedString(@"Invalid Address", @"A title for an alert explaining that a given URL is unavaialable");
-				NSString *message = NSLocalizedString(@"This app is trying to open a web address that your %@ doesn't know how to handle.", @"A message for when sharing is disabled.");
-				[self alertWithTitle:title andMessage:message];
-		}
-}
-
-- (void)alertWithTitle:(NSString *)title andMessage:(NSString *)message
-{
-		NSString *messageFormat = [NSString stringWithFormat:message, [[UIDevice currentDevice] localizedModel]];
-		NSString *cancelButtonTitle = NSLocalizedString(@"Dismiss", @"A title to dismiss an error message.");
-		UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title message:messageFormat delegate:nil cancelButtonTitle:cancelButtonTitle otherButtonTitles: nil];
-		[alert show];
-}
-
 #pragma mark - Table Header
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
@@ -337,6 +316,20 @@
 		return nil;
 }
 
+- (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section
+{
+		NSString *title = nil;
+		
+		if (2 == section) {
+				
+				NSString *appFormat = [NSString stringWithFormat:@"%@ %@ (%@)", [AppDataManager appName], [AppDataManager appVersion], [AppDataManager appBuild]];
+				
+				title = appFormat;
+		}
+		
+		return title;
+}
+
 #pragma mark - MFMessageComposeViewControllerDelegate
 
 - (void)messageComposeViewController:(MFMessageComposeViewController *)controller didFinishWithResult:(MessageComposeResult)result
@@ -351,11 +344,34 @@
 		[self dismissViewControllerAnimated:YES completion:nil];
 }
 
-#pragma mark - Done
+#pragma mark - Utility Methods
+
+- (void)openURL:(NSURL *)url
+{
+		if ([[UIApplication sharedApplication] canOpenURL:url]) {
+				[[UIApplication sharedApplication] openURL:url];
+		}
+		else
+		{
+				NSString *title = NSLocalizedString(@"Invalid Address", @"A title for an alert explaining that a given URL is unavaialable");
+				NSString *message = NSLocalizedString(@"This app is trying to open a web address that your %@ doesn't know how to handle.", @"A message for when sharing is disabled.");
+				[self alertWithTitle:title andMessage:message];
+		}
+}
+
+- (void)alertWithTitle:(NSString *)title andMessage:(NSString *)message
+{
+		NSString *messageFormat = [NSString stringWithFormat:message, [[UIDevice currentDevice] localizedModel]];
+		NSString *cancelButtonTitle = NSLocalizedString(@"Dismiss", @"A title to dismiss an error message.");
+		UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title message:messageFormat delegate:nil cancelButtonTitle:cancelButtonTitle otherButtonTitles: nil];
+		[alert show];
+}
 
 - (void)dismiss
 {
 		[[self presentingViewController] dismissViewControllerAnimated:YES completion:nil];
 }
+
+
 
 @end
