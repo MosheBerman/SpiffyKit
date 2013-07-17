@@ -35,7 +35,7 @@
     // Configure the view for the selected state
 		
 		UIColor *backgroundColor = [AppDataManager appColor];
-		UIColor *textColor = kCellHighlightedColor;
+		UIColor *textColor = [UIColor whiteColor];
 		
 		if (!selected) {
 				backgroundColor = [UIColor whiteColor];
@@ -60,7 +60,7 @@
     // Configure the view for the selected state
 		
 		UIColor *backgroundColor = [AppDataManager appColor];
-		UIColor *textColor = kCellHighlightedColor;
+		UIColor *textColor = [UIColor whiteColor];
 		
 		if (!highlighted) {
 				backgroundColor = [UIColor whiteColor];
