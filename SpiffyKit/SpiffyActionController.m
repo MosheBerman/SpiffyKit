@@ -13,6 +13,7 @@
 #import <Social/Social.h>
 
 #import "AppDataManager.h"
+#import "SpiffyController.h"
 
 @interface SpiffyActionController ()
 
@@ -137,7 +138,7 @@
 				
 				mailComposeViewController = [[MFMailComposeViewController alloc] init];
 				
-				[mailComposeViewController setToRecipients:@[kSupportEmailAddress]];
+				[mailComposeViewController setToRecipients:@[[[SpiffyController sharedController] supportEmailAddress]]];
 				
 				[mailComposeViewController setSubject:subject];
 				
@@ -163,7 +164,7 @@
 
 + (NSString *)_shareMessage
 {
-		NSString *shareString = [NSString stringWithFormat:@"I think you'd like to check out %@ on the App Store. You can download it at %@.", [AppDataManager appName], kAppURL];
+		NSString *shareString = [NSString stringWithFormat:@"I think you'd like to check out %@ on the App Store. You can download it at %@.", [AppDataManager appName], [[SpiffyController sharedController] appURL]];
 		return shareString;
 }
 
@@ -172,7 +173,7 @@
 
 + (NSString *)_supportSubject
 {
-		return [NSString stringWithFormat:@"%@ Feedback", [AppDataManager appName]];
+		return [NSString stringWithFormat:@"Hello from %@", [AppDataManager appName]];
 		
 }
 
@@ -185,35 +186,6 @@
 {
 		NSDictionary *attachments = @{@"Diagnostic": [AppDataManager appDataAsSingleFile]};
 		return attachments;
-}
-
-#pragma mark - Diagnostics
-
-+ (void)toggleDiagnostics:(UISwitch *)sender
-{
-		BOOL enabled = [sender isEnabled];
-		
-		[[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"SpiffyKitDiagnosticsEnabled"];
-}
-
-+ (BOOL)diagnosticsEnabled
-{
-		return [[NSUserDefaults standardUserDefaults] boolForKey:@"SpiffyKitDiagnosticsEnabled"];
-}
-
-
-#pragma mark - Analytics
-
-+ (void)toggleAnalytics:(UISwitch *)sender
-{
-		BOOL enabled = [sender isEnabled];
-		
-		[[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"SpiffyKitAnalyticsEnabled"];
-}
-
-+ (BOOL)analyticsEnabled
-{
-		return [[NSUserDefaults standardUserDefaults] boolForKey:@"SpiffyKitAnalyticsEnabled"];
 }
 
 

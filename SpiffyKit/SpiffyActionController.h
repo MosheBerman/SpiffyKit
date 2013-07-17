@@ -38,14 +38,4 @@
 + (UIViewController *)supportEmailComposer;
 + (UIViewController *)shareEmailComposer;
 
-#pragma mark - Diagnostics
-
-+ (void)toggleDiagnostics:(UISwitch *)sender;
-+ (BOOL)diagnosticsEnabled;
-
-#pragma mark - Analytics
-
-+ (void)toggleAnalytics:(UISwitch *)sender;
-+ (BOOL)analyticsEnabled;
-
 @end
