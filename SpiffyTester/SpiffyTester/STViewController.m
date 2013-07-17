@@ -39,6 +39,8 @@
 		[[SpiffyController sharedController] setSupportEmailAddress:@"yetanotheriphoneapp@gmail.com"];
 		[[SpiffyController sharedController] setTwitterHandle:@"bermaniastudios"];
 		
+		[[SpiffyController sharedController] setAppColor:[UIColor orangeColor]];
+		
 		[[SpiffyController sharedController] presentInViewController:self fromRectWhereApplicable:self.showSpiffyViewButton.frame];
 }
 @end
