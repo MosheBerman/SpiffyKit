@@ -65,7 +65,9 @@
 		
 		//
 		NSString *localizedTwitterFormat = NSLocalizedString(@"Follow @%@", @"A label for a button which allows users to follow you on Twitter.");
-		NSString *twitterHandle = [kTwitterHandle length] ? [NSString stringWithFormat:localizedTwitterFormat, kTwitterHandle] : nil;
+		
+		NSString *twitterHandle = [[SpiffyController sharedController] twitterHandle];
+		NSString *twitterPhrase = [twitterHandle length] ? [NSString stringWithFormat:localizedTwitterFormat, twitterHandle] : nil;
 		
 		
 		//	Table labels
@@ -80,7 +82,7 @@
 																						NSLocalizedString(@"Analytics", @"A button which allows the user to toggle analytics.")];
 		
 		if (twitterHandle) {
-				localizedLabelsForSectionOne = [localizedLabelsForSectionOne arrayByAddingObject:twitterHandle];
+				localizedLabelsForSectionOne = [localizedLabelsForSectionOne arrayByAddingObject:twitterPhrase];
 		}
 		
 		NSArray *localizedLabels = @[localizedLabelsForSectionZero, localizedLabelsForSectionOne, localizedLabelsForSectionTwo];
