@@ -10,7 +10,9 @@
 
 #import "Constants.h"
 #import "AppDataManager.h"
+
 #import "SpiffyActionController.h"
+#import "SpiffyController.h"
 
 #import "SpiffyTableViewCell.h"
 #import "SpiffySwitchCell.h"
@@ -166,11 +168,13 @@
 				
 				if (0 == [indexPath row])
 				{
-						[switchCell.toggle addTarget:self action:@selector(toggleDiagnostics:) forControlEvents:UIControlEventValueChanged];
+						[switchCell.toggle addTarget:[SpiffyController sharedController] action:@selector(toggleDiagnostics:) forControlEvents:UIControlEventValueChanged];
+						[switchCell.toggle setEnabled:[[SpiffyController sharedController] diagnosticsEnabled]];
 				}
 				else if (1 == [indexPath row])
 				{
-						[switchCell.toggle addTarget:self action:@selector(toggleAnalytics:) forControlEvents:UIControlEventValueChanged];
+						[switchCell.toggle addTarget:[SpiffyController sharedController] action:@selector(toggleAnalytics:) forControlEvents:UIControlEventValueChanged];
+						[switchCell.toggle setEnabled:[[SpiffyController sharedController] analyticsEnabled]];
 				}
 				cell = switchCell;
 		}
@@ -220,14 +224,14 @@
 						
 						// Relevant SO Link: http://stackoverflow.com/questions/3374050/url-for-sending-a-user-to-the-app-review-page-on-devices-app-store
 						
-						NSString *reviewURLFormat = [NSString stringWithFormat:@"http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?pageNumber=0&sortOrdering=1&type=Purple+Software&mt=8&id=%@", kAppStoreIdentifier];
+						NSString *reviewURLFormat = [NSString stringWithFormat:@"http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?pageNumber=0&sortOrdering=1&type=Purple+Software&mt=8&id=%@", [[SpiffyController sharedController] appStoreIdentifier]];
 						
 						NSURL *url = [NSURL URLWithString:reviewURLFormat];
 						[self openURL:url];
 				}
 				else if(2 == [indexPath row])
 				{
-						NSURL *url= [NSURL URLWithString:kMoreAppsURL];
+						NSURL *url= [NSURL URLWithString:[[SpiffyController sharedController] moreAppsURL]];
 						[self openURL:url];
 						
 				}
@@ -242,7 +246,7 @@
 				}
 				else if (1 == indexPath.row)
 				{
-						NSString *urlFormat = [NSString stringWithFormat:@"http://twitter.com/%@", kTwitterHandle];
+						NSString *urlFormat = [NSString stringWithFormat:@"http://twitter.com/%@", [[SpiffyController sharedController] twitterHandle]];
 						NSURL *url = [NSURL URLWithString:urlFormat];
 						[self openURL:url];
 				}
