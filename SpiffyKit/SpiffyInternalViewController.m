@@ -98,8 +98,11 @@
 		[self setFont:[UIFont fontWithName:@"AvenirNext-Medium" size:16.0f]];
 		
 		//	Done Button
-		UIBarButtonItem *done = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(dismiss)];
-		[[self navigationItem] setLeftBarButtonItem:done animated:NO];
+		if(UI_USER_INTERFACE_IDIOM() != UIUserInterfaceIdiomPad)
+		{
+				UIBarButtonItem *done = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(dismiss)];
+				[[self navigationItem] setLeftBarButtonItem:done animated:NO];
+		}
 		
 		//	Image View
 		NSString *imageName = [AppDataManager appIconName];
