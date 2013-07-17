@@ -19,6 +19,8 @@
 @property (nonatomic, strong) NSString *supportEmailAddress;
 @property (nonatomic, strong) NSString *twitterHandle;
 
+@property (nonatomic, strong) UIColor *appColor;
+
 + (SpiffyController *)sharedController;
 
 //	On iPad, pass a rect for popover. Else, pass CGRectZero.
