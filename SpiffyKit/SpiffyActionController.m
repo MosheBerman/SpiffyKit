@@ -130,7 +130,7 @@
 
 + (MFMailComposeViewController *)showMailComposerWithSubject:(NSString *)subject andMessage:(NSString *)message andAttachments:(NSDictionary *)attachments
 {
-		MFMailComposeViewController *mailComposeViewController;
+		MFMailComposeViewController *mailComposeViewController = nil;
 		
 		if ([MFMailComposeViewController canSendMail])
 		{
