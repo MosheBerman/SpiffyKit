@@ -187,4 +187,34 @@
 		return attachments;
 }
 
+#pragma mark - Diagnostics
+
++ (void)toggleDiagnostics:(UISwitch *)sender
+{
+		BOOL enabled = [sender isEnabled];
+		
+		[[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"SpiffyKitDiagnosticsEnabled"];
+}
+
++ (BOOL)diagnosticsEnabled
+{
+		return [[NSUserDefaults standardUserDefaults] boolForKey:@"SpiffyKitDiagnosticsEnabled"];
+}
+
+
+#pragma mark - Analytics
+
++ (void)toggleAnalytics:(UISwitch *)sender
+{
+		BOOL enabled = [sender isEnabled];
+		
+		[[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"SpiffyKitAnalyticsEnabled"];
+}
+
++ (BOOL)analyticsEnabled
+{
+		return [[NSUserDefaults standardUserDefaults] boolForKey:@"SpiffyKitAnalyticsEnabled"];
+}
+
+
 @end
