@@ -52,14 +52,19 @@
 		[super viewDidDisappear:animated];
 		
 		[[UINavigationBar appearance] setTintColor:[self originalColor]];
-		
-		
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - Popover
+
+- (BOOL)modalInPopover
+{
+		return YES;
 }
 
 - (CGSize)contentSizeForViewInPopover
