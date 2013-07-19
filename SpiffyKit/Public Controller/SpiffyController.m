@@ -33,6 +33,14 @@
 		return controller;
 }
 
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        _shouldPresentAnalytics = NO;
+    }
+    return self;
+}
 #pragma mark - Presentation
 
 - (void)presentInViewController:(UIViewController *)viewController fromRectWhereApplicable:(CGRect)rect

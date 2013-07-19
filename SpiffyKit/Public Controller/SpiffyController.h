@@ -21,6 +21,8 @@
 
 @property (nonatomic, strong) UIColor *appColor;
 
+@property (nonatomic, assign) BOOL shouldPresentAnalytics;
+
 + (SpiffyController *)sharedController;
 
 //	On iPad, pass a rect for popover. Else, pass CGRectZero.
