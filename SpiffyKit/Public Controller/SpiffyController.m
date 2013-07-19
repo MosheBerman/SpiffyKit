@@ -38,6 +38,8 @@
     self = [super init];
     if (self) {
         _shouldPresentAnalytics = NO;
+		
+				[self setDefaultsIfNecessary];
     }
     return self;
 }
@@ -104,6 +106,25 @@
 - (BOOL)analyticsEnabled
 {
 		return [[NSUserDefaults standardUserDefaults] boolForKey:@"SpiffyKitAnalyticsEnabled"];
+}
+
+#pragma mark - Defaults
+
+- (void)setDefaultsIfNecessary
+{
+		if (![self userDefaultsContainsKey:@"SpiffyKitDiagnosticsEnabled"]) {
+				[[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"SpiffyKitDiagnosticsEnabled"];
+		}
+		
+		if (![self userDefaultsContainsKey:@"SpiffyKitAnalyticsEnabled"] && _shouldPresentAnalytics) {
+//				NSLog(@"Analytics aren't implemented, saving flag for future use.");
+				[[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"SpiffyKitAnalyticsEnabled"];
+		}
+}
+
+- (BOOL)userDefaultsContainsKey:(NSString *)key
+{
+		return [[[[NSUserDefaults standardUserDefaults] dictionaryRepresentation] allKeys] containsObject:key];
 }
 
 @end
