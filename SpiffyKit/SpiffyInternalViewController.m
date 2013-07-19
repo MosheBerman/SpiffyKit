@@ -78,11 +78,15 @@
 		NSArray *localizedLabelsForSectionOne = @[NSLocalizedString(@"Say Hello", @"A button which allows the user to contact the developer via email.")];
 		
 		
-		NSArray *localizedLabelsForSectionTwo = @[NSLocalizedString(@"Send Diagnostics", @"A button which allows the user to toggle diagnostics."),
-																						NSLocalizedString(@"Analytics", @"A button which allows the user to toggle analytics.")];
+		NSArray *localizedLabelsForSectionTwo = @[NSLocalizedString(@"Send Diagnostics", @"A button which allows the user to toggle diagnostics."),];
 		
 		if (twitterHandle) {
 				localizedLabelsForSectionOne = [localizedLabelsForSectionOne arrayByAddingObject:twitterPhrase];
+		}
+		
+		if ([[SpiffyController sharedController] shouldPresentAnalytics]) {
+				NSString *analytics = NSLocalizedString(@"Analytics", @"A button which allows the user to toggle analytics.");
+				localizedLabelsForSectionTwo =[localizedLabelsForSectionTwo arrayByAddingObject:analytics];
 		}
 		
 		NSArray *localizedLabels = @[localizedLabelsForSectionZero, localizedLabelsForSectionOne, localizedLabelsForSectionTwo];
