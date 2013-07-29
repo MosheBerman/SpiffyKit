@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>E85F686D-0D11-4B43-B5B9-5FD877876E25</string>
+	<key>IDESourceControlProjectName</key>
+	<string>SpiffyTester</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>4029633C-D317-4E62-B9BF-6D17C194A4A2</key>
+		<string>ssh://bitbucket.org/moshberm/spiffykit.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>SpiffyTester/SpiffyTester.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>4029633C-D317-4E62-B9BF-6D17C194A4A2</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>ssh://bitbucket.org/moshberm/spiffykit.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>4029633C-D317-4E62-B9BF-6D17C194A4A2</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>4029633C-D317-4E62-B9BF-6D17C194A4A2</string>
+			<key>IDESourceControlWCCName</key>
+			<string>SpiffyKit</string>
+		</dict>
+	</array>
+</dict>
+</plist>
