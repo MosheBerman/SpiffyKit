@@ -19,10 +19,10 @@ Getting Started:
 
 Once your app's Xcode project knows about Spiffy, it'll be fairly simple to integrate. We have to do five things to see Spiffy in our app:
 
-0. Drag the `SpiffyKit.xproj` and `SpiffyKit` folders into our new app.
+0. Drag the `SpiffyKit.xproj` and `SpiffyKit` folders into our new app. Don't add anything with "Test" in its name.
 1. Add `libSpiffyKit.a` as a build dependency.
 2. Link our app against `libSpiffyKit.a`, `Social.framework`, and `MessageUI.framework`
-3. Configure SpifftyKit in our App Delegate
+3. Configure SpiffyKit in our App Delegate
 4. Show an instance of the `SpiffyViewController`.
 
 
