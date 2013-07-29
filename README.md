@@ -5,7 +5,7 @@ A framework for a drop-in view controller that allows users to contact you and s
 
 Screenshots:
 ---
-There are no screenshots at the moment. They're on their way. Imagine a nice table view.
+![](./demo.png)
 
 Dependencies:
 ---
