@@ -38,11 +38,7 @@
     self = [super init];
     if (self) {
         _shouldPresentAnalytics = NO;
-<<<<<<< HEAD
-=======
-		
 				[self setDefaultsIfNecessary];
->>>>>>> parent of 4332c79... Updated spiffykit directory.
     }
     return self;
 }
@@ -57,11 +53,9 @@
 		}
 		else
 		{
-<<<<<<< HEAD
 				[viewController presentViewController:viewController animated:YES completion:nil];
-=======
+
 				[viewController presentViewController:[self spiffyViewController] animated:YES completion:nil];
->>>>>>> parent of 4332c79... Updated spiffykit directory.
 		}
 }
 
@@ -115,8 +109,6 @@
 		return [[NSUserDefaults standardUserDefaults] boolForKey:@"SpiffyKitAnalyticsEnabled"];
 }
 
-<<<<<<< HEAD
-=======
 #pragma mark - Defaults
 
 - (void)setDefaultsIfNecessary
@@ -136,5 +128,4 @@
 		return [[[[NSUserDefaults standardUserDefaults] dictionaryRepresentation] allKeys] containsObject:key];
 }
 
->>>>>>> parent of 4332c79... Updated spiffykit directory.
 @end
