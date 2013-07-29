@@ -53,8 +53,6 @@
 		}
 		else
 		{
-				[viewController presentViewController:viewController animated:YES completion:nil];
-
 				[viewController presentViewController:[self spiffyViewController] animated:YES completion:nil];
 		}
 }
