@@ -23,8 +23,8 @@
 @implementation SpiffyViewController
 
 - (id)init
-{
-		SpiffyInternalViewController *spiffyViewController = [[SpiffyInternalViewController alloc] init];
+{	
+    SpiffyInternalViewController *spiffyViewController = [[SpiffyInternalViewController alloc] init];
     self = [super initWithRootViewController:spiffyViewController];
     if (self) {
 
