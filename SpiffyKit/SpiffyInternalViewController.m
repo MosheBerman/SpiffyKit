@@ -94,8 +94,8 @@
     [self setLabels:localizedLabels];
     
     //	Table Cell
-    [[self tableView] registerClass:[SpiffyTableViewCell class] forCellReuseIdentifier:@"Cell"];
-    [[self tableView] registerClass:[SpiffySwitchCell class] forCellReuseIdentifier:@"SwitchCell"];
+//    [[self tableView] registerClass:[SpiffyTableViewCell class] forCellReuseIdentifier:@"Cell"];
+//    [[self tableView] registerClass:[SpiffySwitchCell class] forCellReuseIdentifier:@"SwitchCell"];
     
     
     //	Table Font
@@ -179,7 +179,12 @@
     
     if (2 == [indexPath section])
     {
-        SpiffySwitchCell *switchCell = [tableView dequeueReusableCellWithIdentifier:@"SwitchCell" forIndexPath:indexPath];
+        SpiffySwitchCell *switchCell = [tableView dequeueReusableCellWithIdentifier:@"SwitchCell"];
+        
+        if (!switchCell) {
+            switchCell = [[SpiffySwitchCell alloc] init];
+        }
+        
         
         [[switchCell switchLabel] setText:text];
         
@@ -197,8 +202,12 @@
     }
     else
     {
-        SpiffyTableViewCell *spiffyCell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+        SpiffyTableViewCell *spiffyCell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
         // Configure the cell...
+        
+        if (!spiffyCell) {
+            spiffyCell = [[SpiffyTableViewCell alloc] init];
+        }
         
         [[spiffyCell textLabel] setText:text];
         [[spiffyCell textLabel] setFont:[self font]];
