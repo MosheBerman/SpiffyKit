@@ -35,4 +35,9 @@
 + (UIViewController *)supportEmailComposer;
 + (UIViewController *)shareEmailComposer;
 
+#pragma mark - Legacy OS Check
+
+//  Returns true if OS is less than 6.0
++ (BOOL)isLegacyOS;
+
 @end

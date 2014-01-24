@@ -37,23 +37,25 @@
 
 + (BOOL)canUseTwitter
 {
-		return [self _canUseSocialService:SLServiceTypeTwitter];
+
+    return [self _canUseSocialService:SLServiceTypeTwitter];
 }
 
 + (BOOL)canUseFacebook
 {
-		return [self _canUseSocialService:SLServiceTypeFacebook];
+    return [self _canUseSocialService:SLServiceTypeFacebook];
 }
 
 + (BOOL)canUseSinaWeibo
 {
-		return [self _canUseSocialService:SLServiceTypeSinaWeibo];
+
+    return [self _canUseSocialService:SLServiceTypeSinaWeibo];
 }
 
 
 + (BOOL)_canUseSocialService:(NSString *)serviceType
 {
-		return [SLComposeViewController isAvailableForServiceType:serviceType];
+    return [SLComposeViewController isAvailableForServiceType:serviceType];
 }
 
 #pragma mark - Generalized Feature Availability Checks
@@ -189,6 +191,14 @@
 {
 		NSDictionary *attachments = @{@"Diagnostic": [AppDataManager appDataAsSingleFile]};
 		return attachments;
+}
+
+/**
+ *  Returns YES if the iOS version is less than 6.
+ */
++ (BOOL)isLegacyOS
+{
+    return [[[UIDevice currentDevice] systemVersion] floatValue] < 6.0;
 }
 
 

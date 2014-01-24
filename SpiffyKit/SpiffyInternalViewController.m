@@ -38,24 +38,15 @@
     
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        controller = [[SpiffyInternalViewController alloc] init];
+        controller = [[SpiffyInternalViewController alloc] initWithStyle:UITableViewStyleGrouped];
     });
     return controller;
 }
 
-- (id)init
-{
-    self = [super initWithStyle:UITableViewStyleGrouped];
-    if (self) {
-        // Transition
-        [self setModalTransitionStyle: UIModalTransitionStyleFlipHorizontal];
-        
-    }
-    return self;
-}
-
 - (void)viewDidLoad
 {
+    [self setModalTransitionStyle: UIModalTransitionStyleFlipHorizontal];
+    
     [super viewDidLoad];
     
     //	Title
@@ -231,7 +222,21 @@
     if (0 == [indexPath section])
     {
         if (0 == [indexPath row]) {
-            if ([SpiffyActionController canShare]) {
+            
+            if([SpiffyActionController isLegacyOS]) {
+                if ([SpiffyActionController canSendEmail]) {
+                    [SpiffyActionController shareEmailComposer];
+                }
+                else
+                {
+                    NSString *title = NSLocalizedString(@"Sharing Disabled", @"A title for an alert explaining that sharing is unavaialable");
+                    NSString *message = NSLocalizedString(@"Sharing isn't enabled. Set up email or a social media account on this device to enable sharing.", @"A message for when sharing is disabled.");
+                    NSString *cancelButtonTitle = NSLocalizedString(@"Dismiss", @"A title to dismiss an error message.");
+                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title message:message delegate:nil cancelButtonTitle:cancelButtonTitle otherButtonTitles: nil];
+                    [alert show];
+                }
+            }
+            else if ([SpiffyActionController canShare]) {
                 UIActivityViewController *activityController = [SpiffyActionController activityViewController];
                 [self presentViewController:activityController animated:YES completion:nil];
             }

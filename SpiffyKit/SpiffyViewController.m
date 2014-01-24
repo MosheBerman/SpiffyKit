@@ -17,17 +17,20 @@
 @interface SpiffyViewController ()
 
 @property (nonatomic, strong) UIColor *originalColor;
+@property (nonatomic, strong) SpiffyInternalViewController *internalVC;
 
 @end
 
 @implementation SpiffyViewController
 
-- (id)init
-{	
-    SpiffyInternalViewController *spiffyViewController = [[SpiffyInternalViewController alloc] init];
-    self = [super initWithRootViewController:spiffyViewController];
-    if (self) {
 
+
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        SpiffyInternalViewController *spiffyViewController = [SpiffyInternalViewController sharedController];
+        [self pushViewController:spiffyViewController animated:NO];
     }
     return self;
 }
