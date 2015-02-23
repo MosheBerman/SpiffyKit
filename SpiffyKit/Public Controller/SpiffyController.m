@@ -12,9 +12,6 @@
 
 #import <UIKit/UIKit.h>
 
-#import "Flurry.h"
-
-
 @interface SpiffyController () <UIPopoverControllerDelegate>
 
 @property (nonatomic, strong) UIPopoverController *popover;
@@ -94,7 +91,7 @@
     if([[SpiffyController sharedController] analyticsEnabled]) {
         
         NSDictionary *parameters = @{@"Enabled" : @(enabled)};
-        [Flurry logEvent:@"Toggling Diagnostics" withParameters:parameters];
+
     }
     
 }
@@ -116,7 +113,7 @@
     if([[SpiffyController sharedController] analyticsEnabled]) {
         
         NSDictionary *parameters = @{@"Enabled" : @(enabled)};
-        [Flurry logEvent:@"Toggling Analytics" withParameters:parameters];
+
     }
 }
 
