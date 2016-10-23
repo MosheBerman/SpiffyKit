@@ -86,7 +86,7 @@
 		
 		UIActivityViewController *activityViewController = [[UIActivityViewController alloc] initWithActivityItems:items applicationActivities:nil];
 		
-		[activityViewController setCompletionHandler:nil];
+    [activityViewController setCompletionWithItemsHandler:nil];
 
 		if (![self canSendEmail]) {
 				[self _addExclusionType:UIActivityTypeMail toActivityViewController:activityViewController];
